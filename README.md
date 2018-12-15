@@ -8,7 +8,7 @@ regularly updated, this file changes a quite a few settings (including volume le
 
 settings defined in an autoexec can only be set within the file as they apply on launch, overriding the in-game settings menu.
 
-the "Crosshairs" file has drop-in experimental xhairs - so hard to decide.
+the "Crosshairs" file has drop-in experimental xhairs
 
 
 glhf
