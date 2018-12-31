@@ -10,7 +10,7 @@ settings defined in an autoexec can only be set within the file as they apply on
 
 the "Crosshairs" file has drop-in experimental xhairs and some launch options at the end.
 
-"splat.webm" is a file to replace the background of the enemy counter in DZ. drop in to Steam/steamapps/common/Counter-Strike Global Offensive/csgo/panorama/videos, replace the existing file.
+"splat.webm" is a smaller, static background for the enemy counter in DZ. drop in to Steam/steamapps/common/Counter-Strike Global Offensive/csgo/panorama/videos and replace the existing file.
 
 
 glhf
