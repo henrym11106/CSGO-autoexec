@@ -8,10 +8,11 @@ regularly updated, this file changes a quite a few settings (including volume le
 
 settings defined in an autoexec can only be set within the file as they apply on launch, overriding the in-game settings menu.
 
-the "Crosshairs" file has drop-in experimental xhairs and some launch options at the end.
+the "Crosshairs" file has drop-in experimental xhairs and has some launch options at the end.
 
-"splat.webm" is a smaller, static background for the enemy counter in DZ that doesn't block other parts of the HUD.
+the "splat---.webm" files are smaller, static backgrounds for the enemy counter in DZ that won't block other parts of the HUD.
 drop in to Steam/steamapps/common/Counter-Strike Global Offensive/csgo/panorama/videos and replace or rename the old file.
+whatever file in the "videos" folder is named "splat.webm" will be used as the counter background.
 
 
 glhf
