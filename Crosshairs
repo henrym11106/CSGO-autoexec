@@ -191,4 +191,4 @@ cl_crosshairalpha 250; cl_crosshaircolor 1; cl_crosshairdot 0; cl_crosshairgap -
 
 //launch options
 
--novid -threads 4 -high -gl -GLX_EXT_swap_control_tear 0 -tearfree 0 -vblank_mode=0 -nod3d9ex -refresh 144 -maxplayers_override 64 -nojoy -cl_forcepreload 1 -sv_forcepreload 1 -panorama_eco_mode 2 -tickrate 128 +exec autoexec
+-novid -threads 4 -high -nod3d9ex -refresh 144 -maxplayers_override 64 -nojoy -cl_forcepreload 1 -sv_forcepreload 1 -panorama_eco_mode 2 -tickrate 128 +exec autoexec
