@@ -189,6 +189,6 @@ cl_crosshairusealpha "1"
 cl_crosshairalpha 250; cl_crosshaircolor 1; cl_crosshairdot 0; cl_crosshairgap -3; cl_crosshairsize 2; cl_crosshairstyle 4; cl_crosshairusealpha 1; cl_crosshairthickness 0; cl_crosshair_sniper_width 1; cl_crosshair_drawoutline 0;
 
 
-//launch options
-
--novid -threads 4 -high -nod3d9ex -refresh 144 -maxplayers_override 64 -nojoy -cl_forcepreload 1 -sv_forcepreload 1 -panorama_eco_mode 2 -tickrate 128 +exec autoexec
+// launch options
+//
+// gamemoderun %command% -novid -threads 4 -high -nojoy -GLX_EXT_swap_control_tear 0 -tearfree 0 -vblank_mode 0 -maxplayers_override 64 -panorama_eco_mode 2 -cl_forcepreload 1 -sv_forcepreload 1 -nod3d9ex -tickrate 128 -noaafonts +exec autoexec
