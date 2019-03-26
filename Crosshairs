@@ -191,4 +191,4 @@ cl_crosshairalpha 250; cl_crosshaircolor 1; cl_crosshairdot 0; cl_crosshairgap -
 
 // launch options
 //
-// gamemoderun %command% -novid -threads 4 -high -nojoy -GLX_EXT_swap_control_tear 0 -tearfree 0 -vblank_mode 0 -maxplayers_override 64 -panorama_eco_mode 2 -cl_forcepreload 1 -sv_forcepreload 1 -nod3d9ex -tickrate 128 -noaafonts +exec autoexec
+// gamemoderun %command% -novid -threads 4 -high -nojoy -GLX_EXT_swap_control_tear 0 -tearfree 0 -vblank_mode 0 -maxplayers_override 50 -panorama_eco_mode 2 -cl_forcepreload 1 -sv_forcepreload 1 -tickrate 128 +exec autoexec
