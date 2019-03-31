@@ -191,4 +191,6 @@ cl_crosshairalpha 250; cl_crosshaircolor 1; cl_crosshairdot 0; cl_crosshairgap -
 
 // launch options
 //
-// gamemoderun %command% -novid -threads 4 -high -nojoy -GLX_EXT_swap_control_tear 0 -tearfree 0 -vblank_mode 0 -maxplayers_override 50 -panorama_eco_mode 2 -cl_forcepreload 1 -sv_forcepreload 1 -tickrate 128 +exec autoexec
+// gamemoderun %command% -GLX_EXT_swap_control_tear 0 -tearfree 0 -vblank_mode 0 -high -novid -noforcemaccel -noforcemparms -noforcemspd -nojoy -maxplayers_override 50 -cl_forcepreload 1 -sv_forcepreload 1 -noaa -threads 4 -tickrate 128 +clientport 27008
+// NOTE: if more than one computer is running steam on your local network, set the "clientport" option to anything between 27005 and 27032, excluding 27020 and any number in use on another machine.
+// https://support.steampowered.com/kb_article.php?ref=6370-QPHJ-3567
