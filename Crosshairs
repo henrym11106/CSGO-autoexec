@@ -200,7 +200,7 @@ gamemoderun %command% -GLX_EXT_swap_control_tear 0 -tearfree 0 -vblank_mode 0 -h
 // https://support.steampowered.com/kb_article.php?ref=6370-QPHJ-3567
 //
 //
-// Linux-related optimisation guide:
+// Linux-focused optimisation guide:
 //
 // https://steamcommunity.com/sharedfiles/filedetails/?id=1502890492
 //
