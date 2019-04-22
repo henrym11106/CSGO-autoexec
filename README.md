@@ -14,5 +14,7 @@ the "splat---.webm" files are smaller, static backgrounds for the enemy counter 
 drop in to Steam/steamapps/common/Counter-Strike Global Offensive/csgo/panorama/videos and replace or rename the old file.
 whatever file in the "videos" folder is named "splat.webm" will be used as the counter background.
 
+"ara.cfg" and "dma.cfg" are Arms Race Aim and Death Match Aim, set to run on a Yesber-made aim map. 
+add to Steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg and run "exec dma" or "exec ara".
 
 glhf
