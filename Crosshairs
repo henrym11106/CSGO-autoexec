@@ -192,7 +192,7 @@ cl_crosshairalpha 250; cl_crosshaircolor 1; cl_crosshairdot 0; cl_crosshairgap -
 
 // launch options
 
--novid -high -nojoy -cl_forcepreload 1 -sv_forcepreload 1 -noaa -threads 4 -tickrate 100 +clientport 27006
+-novid -high -nojoy -cl_forcepreload 1 -sv_forcepreload 1 -noaa -tickrate 100 +clientport 27006
 
 // NOTE: if more than one computer is running steam on your local network, set the "+clientport 27005" option to anything
 // between and including 27005 and 27032, excluding 27020 and any number in use on another local machine (27005 is default).
