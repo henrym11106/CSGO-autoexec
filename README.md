@@ -4,11 +4,11 @@ my base config for Counter-Strike: Global Offensive.
 
 this file contains my current crosshair, binds for buying and using weapons & equipment, custom binds for sound, radar and netgraph, binds for unlimited nades & auto bhop for offline practice, etc.
 
-this file changes a quite a few settings (including volume levels) so read it through before using.
+this file changes a quite a few settings including volume levels so read it through before using.
 
 settings defined here should only be set within the file as they apply on launch, overriding the in-game settings menu.
 
-the "Crosshairs" file also has some launch options at the end. some #commands may prevent game launch on some systems.
+the "Crosshairs" file also has launch options at the end. some #commands may prevent game launch on some systems.
 
 the "splat___.webm" files are smaller, static backgrounds for the enemy counter in DZ that won't block other parts of the HUD.
 drop in to Steam/steamapps/common/Counter-Strike Global Offensive/csgo/panorama/videos and replace or rename the old file.
