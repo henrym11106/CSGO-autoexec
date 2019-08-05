@@ -20,8 +20,6 @@ add to Steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg and run "
 "dma2.cfg" kicks all bots and changes some rules for bot practice.
 adjust as needed and exec after map load. add bots as desired.
 
-for a better bot practice DM experience, kick all bots then add enemy bots as desired.
-
 
 "hl2exec.cfg" is my base config for older Source games.
 
