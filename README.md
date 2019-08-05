@@ -24,4 +24,4 @@ adjust as needed and exec after map load. add bots as desired.
 "hl2exec.cfg" is my base config for older Source games.
 
 
-# glhf
+# HFHF
