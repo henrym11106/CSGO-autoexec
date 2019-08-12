@@ -17,7 +17,7 @@ whatever file in the "videos" folder is named "splat.webm" will be used as the c
 
 "ara.cfg" and "dma.cfg" are Arms Race Aim & Death Match Aim, set to run on a Yesber-made aim map.
 add to Steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg and run "exec dma" or "exec ara".
-"dma2.cfg" kicks all bots and changes some rules for bot practice.
+the "bots-<gun>" files kick all bots and change some rules for bot practice. "bots-add-" add 15 of that type of bot.
 adjust as needed and exec after map load. add bots as desired.
 
 
