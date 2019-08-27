@@ -219,10 +219,13 @@ cl_crosshairalpha 250; cl_crosshaircolor 1; cl_crosshairdot 0; cl_crosshairgap -
 
 // launch options
 
-gamemoderun %command% MESA_NO_DITHER %command% GLX_EXT_swap_control_tear=0 %command% tearfree=0 %command% EnablePageFlip=0 %command% SwapBuffersWait=0 %command% vblank_mode=0 %command% -novid -high -nojoy -cl_forcepreload 1 -sv_forcepreload 1 -noaa -panorama_eco_mode 2 -freq 144 -tickrate 100 +clientport 27005
+gamemoderun %command% MESA_NO_DITHER %command% GLX_EXT_swap_control_tear=0 %command% tearfree=0 %command% EnablePageFlip=0 %command% SwapBuffersWait=0 %command% vblank_mode=0 %command% -high -nojoy -noaa -noaafonts -freq 144 -novid -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming +mat_disable_fancy_blending 1 -tickrate 100 +clientport 27005
 
-// NOTE: if more than one computer is running steam on your local network, set the "+clientport 27005" option to anything
+// if more than one computer is running steam on your local network, set the "+clientport 27005" option to anything
 // between and including 27005 and 27032, excluding 27020 and any number in use on another local machine (27005 is default).
+//
+// NOTE: the %command% options may prevent launch with some hardware, nvidia GPUs seem to disagree with them.
+// probably due to the way propriatary nvidia drivers are implemented.
 //
 // https://support.steampowered.com/kb_article.php?ref=6370-QPHJ-3567
 //
