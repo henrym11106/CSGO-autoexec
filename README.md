@@ -27,7 +27,9 @@ to use, launch steam offline (if you're getting kicked anyway, disable your inte
 *-remember to revert before playing online!*
 
 
+
 "hl2exec.cfg" is my base config for older Source games.
+
 
 
 # HFHF
