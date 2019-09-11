@@ -23,7 +23,7 @@ adjust as needed and exec after map load. add bots as desired.
 
 "items_game-realistic.txt" changes weapon stats and behaviour to more realistic values. this obviously cannot be used online, it's just interesting to play with. could improve gameplay IMO.
 to use, launch steam offline (if you're getting kicked anyway, disable your internet) and place file in [steamapps/common/Counter-Strike Global Offensive/csgo/scripts/items] - rename the original "items_game.txt" file to say "items_game1.txt" then change "items_game-realistic.txt" to "items_game.txt"
-*revert before playing online!*
+[*remember to revert before playing online!*]
 
 
 "hl2exec.cfg" is my base config for older Source games.
