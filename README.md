@@ -2,7 +2,7 @@
 my config and custom action binds for Counter-Strike: Global Offensive.
 
 
-this file contains my current crosshair, my in-development duckjump and movement binds, convenient binds for buying, spawning and using weapons & equipment, custom binds for sound, radar and netgraph, binds for unlimited nades & auto bhop for offline practice, etc.
+this file contains my current crosshair, my in-development Exo-DuckJump and movement binds, convenient binds for buying, spawning and using weapons & equipment, custom binds for sound, radar and netgraph, binds for unlimited nades & auto bhop for offline practice, etc.
 
 this file changes a quite a few settings including volume levels so read each part through before using.
 
