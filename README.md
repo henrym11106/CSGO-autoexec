@@ -12,7 +12,8 @@ the "Crosshairs" file also has launch options at the end. some #commands may pre
 
 the "splat___.webm" files are smaller, static backgrounds for the enemy counter in DZ that won't block other parts of the HUD.
 drop in to [steamapps/common/Counter-Strike Global Offensive/csgo/panorama/videos] and replace or rename the old file.
-whatever file in the "videos" folder is named "splat.webm" will be used as the counter background. the file here named "splat.webm" is completely transparent.
+whatever file in the "videos" folder is named "splat.webm" will be used as the counter background.
+the file here named "splat.webm" is a completely transparent background.
 
 
 "ara.cfg" and "dma.cfg" are Arms Race Aim & Death Match Aim, set to run on a Yesber-made aim map.
