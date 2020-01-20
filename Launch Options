@@ -10,7 +10,7 @@ strangle 250 %command% __GL_THREADED_OPTIMIZATIONS=1 %command% MESA_NO_DITHER %c
 //
 // NOTE: the %command% options may prevent launch with some hardware, nvidia GPUs seem to disagree with them
 //
-// "strangle ### %command%" is an external FPS-limiter for Linux, I'm still testing it for now
+// "strangle ### %command%" sets an external FPS-limiter for Linux, I'm still only testing it for now
 //
 // https://support.steampowered.com/kb_article.php?ref=6370-QPHJ-3567
 //
