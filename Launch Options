@@ -6,13 +6,14 @@ strangle 250 %command% __GL_THREADED_OPTIMIZATIONS=1 %command% MESA_NO_DITHER %c
 // if more than one computer is running steam on your local network, set the "+clientport 27005" option to anything
 // between and including 27005 and 27032, excluding 27020 and any number in use on another local machine (27005 is default)
 //
+// https://support.steampowered.com/kb_article.php?ref=6370-QPHJ-3567
+//
+//
 // "-language bananagaming" enables that text color mod, additional files are needed
 //
-// NOTE: the %command% options may prevent launch with some hardware, nvidia GPUs seem to disagree with them
+// NOTE: the %command% environment options may prevent launch with some hardware, nvidia GPUs seem to disagree with them
 //
 // "strangle ### %command%" sets an external FPS-limiter for Linux, I'm still only testing it for now
-//
-// https://support.steampowered.com/kb_article.php?ref=6370-QPHJ-3567
 //
 //
 // Linux-focused optimisation guide:
