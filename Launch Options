@@ -1,6 +1,6 @@
 // LAUNCH OPTIONS
 
-strangle 250 %command% __GL_THREADED_OPTIMIZATIONS=1 %command% GLX_EXT_swap_control_tear=0 %command% tearfree=0 %command% EnablePageFlip=0 %command% AMD_DEBUG=nir %command% SwapBuffersWait=0 %command% vblank_mode=0 %command% -high -nojoy -noaa -noaafonts -freq 1000 -novid -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -tickrate 128 +clientport 27005
+strangle 250 %command% GLX_EXT_swap_control_tear=0 %command% tearfree=0 %command% EnablePageFlip=0 %command% AMD_DEBUG=nir %command% SwapBuffersWait=0 %command% vblank_mode=0 %command% -high -nojoy -noaa -noaafonts -freq 1000 -novid -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -tickrate 128 +clientport 27005
 
 
 // if more than one computer is running steam on your local network, set the "+clientport 27005" option to anything
@@ -15,6 +15,7 @@ strangle 250 %command% __GL_THREADED_OPTIMIZATIONS=1 %command% GLX_EXT_swap_cont
 //
 // "strangle ### %command%" sets an external FPS-limiter for Linux, I'm still only testing it for now
 //
+// "__GL_THREADED_OPTIMIZATIONS=1 %command%" seems to hurt performance about 5% on my R9 390 + AMDGPU while CPU-bound
 //
 // Linux-focused optimisation guide:
 //
