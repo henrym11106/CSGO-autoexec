@@ -15,7 +15,7 @@ strangle 250 %command% GLX_EXT_swap_control_tear=0 %command% tearfree=0 %command
 //
 // "strangle ### %command%" sets an external FPS-limiter for Linux, I'm still only testing it for now
 //
-// "__GL_THREADED_OPTIMIZATIONS=1 %command%" seems to hurt performance about 5% on my R9 390 + AMDGPU while CPU-bound
+// "__GL_THREADED_OPTIMIZATIONS=1 %command%" seems to hurt performance about 2-6% on ryzen 3500x R9 390 AMDGPU while CPU-bound
 //
 // Linux-focused optimisation guide:
 //
