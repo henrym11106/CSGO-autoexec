@@ -21,7 +21,7 @@ the "bots-<gun>" files kick all bots and change some rules for bot practice. "bo
 adjust as needed and exec after map load. add bots as desired.
 
 
-"items_game-realistic.txt" changes weapon stats and behaviour to more realistic values, mostly by raising rites of fire and/or changes to accuracy. this obviously cannot be used online, it's just interesting to play with. could improve gameplay.
+"items_game-realistic.txt" changes weapon stats and behaviour to more realistic values, mostly by raising firing rates and/or changes to accuracy. this obviously cannot be used online, it's just interesting to play with.
 to use, launch steam offline (if you're getting kicked anyway, disable your internet) and place file in [steamapps/common/Counter-Strike Global Offensive/csgo/scripts/items] - rename the original "items_game.txt" file to say "items_game1.txt" then change "items_game-realistic.txt" to "items_game.txt"
 
 *-remember to revert "items_game" before playing online!*
