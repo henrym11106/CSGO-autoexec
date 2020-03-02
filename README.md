@@ -2,7 +2,7 @@
 my config and custom action binds for Counter-Strike: Global Offensive.
 
 
-this file contains my current crosshair, my custom Exo-DuckJump and movement binds, convenient binds for buying, spawning and using weapons & equipment, custom binds for sound, radar and netgraph, binds for unlimited nades & auto bhop for offline practice, etc.
+"autoexec.cfg" contains my current crosshair, my custom Exo-DuckJump and movement binds, convenient binds for buying, spawning and using weapons & equipment, custom binds for sound, radar and netgraph, binds for unlimited nades & auto bhop for offline practice, etc.
 
 this file changes a quite a few settings including volume levels so read each part through before using.
 
@@ -27,9 +27,9 @@ to use, launch steam offline (if you're getting kicked anyway, disable your inte
 *-remember to revert "items_game" before playing online!*
 
 
+"hl2exec.cfg" is my base config for older Source games like HL2 and TF2
 
-"hl2exec.cfg" is my base config for older Source games like HL2 and TF2.
-
+"csexec.cfg" is for CS 1.6 and CS:S - different weapons etc from CSGO
 
 
 # HFHF
