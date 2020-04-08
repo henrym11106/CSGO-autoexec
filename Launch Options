@@ -12,7 +12,7 @@ gamemoderun %command% GLX_EXT_swap_control_tear=0 %command% tearfree=0 %command%
 //
 // "-language bananagaming" enables that text color mod, additional files are needed
 //
-// NOTE: the %command% environment options may prevent launch with some hardware, nvidia GPUs seem to disagree with them
+// NOTE: Some %command% environment options may prevent launch with some hardware, nvidia GPUs seem to disagree with them
 //
 // "strangle 250 %command% " sets an external FPS-limiter for Linux (libstrangle) I'm still only testing it for now
 //
