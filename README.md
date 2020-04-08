@@ -27,9 +27,8 @@ to use, launch steam offline (if you're getting kicked anyway, disable your inte
 *-remember to revert "items_game" before playing online!*
 
 
-"hl2exec.cfg" is my base config for older Source games like HL2 and TF2
-
 "csexec.cfg" is for CS 1.6 and CS:S - different weapons etc from CSGO
+I also have configs here tweaked for a few other games
 
 
 # HFHF
