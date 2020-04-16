@@ -2,7 +2,7 @@
 my config and custom action binds for Counter-Strike: Global Offensive.
 
 
-"autoexec.cfg" contains my current crosshair, my custom Exo-DuckJump and movement binds, convenient binds for buying, spawning and using weapons & equipment, custom binds for sound, radar and netgraph, binds for unlimited nades & auto bhop for offline practice, etc.
+"autoexec.cfg" contains my current crosshair, my custom binds for Exo-DuckJump, movement, sound, radar and netgraph, binds for buying, spawning and using weapons & equipment, binds for nade practice, binds for KZ, surf & bhop offline, etc.
 
 this file changes a quite a few settings including volume levels so read each part through before using.
 
