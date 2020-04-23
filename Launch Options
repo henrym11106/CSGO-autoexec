@@ -1,9 +1,12 @@
 // LAUNCH OPTIONS
 
 
-gamemoderun %command% __GL_THREADED_OPTIMIZATIONS=1 %command% GLX_EXT_swap_control_tear=0 %command% tearfree=0 %command% EnablePageFlip=0 %command% SwapBuffersWait=0 %command% vblank_mode=0 %command% -high -nojoy -noaa -nofxaa -noaafonts -freq 1000 -novid -cl_forcepreload 1 -sv_forcepreload 1 -tickrate 128 +clientport 27005
+// current: 
+gamemoderun %command% __GL_THREADED_OPTIMIZATIONS=1 %command% GLX_EXT_swap_control_tear=0 %command% tearfree=0 %command% EnablePageFlip=0 %command% SwapBuffersWait=0 %command% vblank_mode=0 %command% -high -nojoy -noaa -nofxaa -noaafonts -novid -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -tickrate 128 +clientport 27027
 
 
+// NOTE: Some %command% environment options may prevent launch with some hardware eg nvidia GPUs
+//
 // if more than one computer is running steam on your local network, set the "+clientport 27005" option to anything
 // between and including 27005 and 27032, excluding 27020 and any number in use on another local machine (27005 is default)
 //
@@ -11,8 +14,6 @@ gamemoderun %command% __GL_THREADED_OPTIMIZATIONS=1 %command% GLX_EXT_swap_contr
 //
 //
 // "-language bananagaming" enables that text color mod, additional files are needed
-//
-// NOTE: Some %command% environment options may prevent launch with some hardware, nvidia GPUs seem to disagree with them
 //
 // "strangle 250 %command% " sets an external FPS-limiter for Linux (libstrangle) I'm still only testing it for now
 //
