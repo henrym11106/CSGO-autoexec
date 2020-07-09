@@ -2,7 +2,7 @@
 
 
 // current: 
-gamemoderun %command% __GL_THREADED_OPTIMIZATIONS=1 %command% GLX_EXT_swap_control_tear=0 %command% tearfree=0 %command% EnablePageFlip=0 %command% SwapBuffersWait=0 %command% vblank_mode=0 %command% -high -nojoy -noaa -nofxaa -noaafonts -novid -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -tickrate 128 +clientport 27027
+gamemoderun %command% RADV_PERFTEST=aco %command% __GL_THREADED_OPTIMIZATIONS=1 %command% GLX_EXT_swap_control_tear=0 %command% tearfree=0 %command% EnablePageFlip=0 %command% SwapBuffersWait=0 %command% vblank_mode=0 %command% -high -nojoy -noaa -nofxaa -noaafonts -novid -language bananagaming -tickrate 128 +clientport 27005
 
 
 // NOTE: Some %command% environment options may prevent launch with some hardware eg nvidia GPUs
