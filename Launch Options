@@ -2,10 +2,9 @@
 
 
 // current: 
-gamemoderun %command% RADV_PERFTEST=aco %command% __GL_THREADED_OPTIMIZATIONS=1 %command% GLX_EXT_swap_control_tear=0 %command% tearfree=0 %command% EnablePageFlip=0 %command% SwapBuffersWait=0 %command% vblank_mode=0 %command% -high -nojoy -noaa -nofxaa -noaafonts -novid -language bananagaming -tickrate 128 +clientport 27005
+mesa_no_error=true gamemoderun RADV_PERFTEST=aco __GL_THREADED_OPTIMIZATIONS=1 GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 %command% -high -nojoy -noaa -nofxaa -noaafonts -novid -language bananagaming -tickrate 128 +clientport 27027
 
-
-// NOTE: Some %command% environment options may prevent launch with some hardware eg nvidia GPUs
+// NOTE: %command% environment options apply to the launch string and may prevent launch with some hardware eg nvidia GPUs
 //
 // if more than one computer is running steam on your local network, set the "+clientport 27005" option to anything
 // between and including 27005 and 27032, excluding 27020 and any number in use on another local machine (27005 is default)
