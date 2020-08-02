@@ -20,9 +20,11 @@ mesa_no_error=true gamemoderun RADV_PERFTEST=aco __GL_THREADED_OPTIMIZATIONS=1 G
 //
 // gamemoderun %command% for Feral's game mode daemon
 //
-// "__GL_THREADED_OPTIMIZATIONS=1 %command%" might hurt performance, might not...
+// "__GL_THREADED_OPTIMIZATIONS=1 %command%" might hurt performance, might not
 //
 // AMD_DEBUG=nir %command%
+// 
+// mesa_no_error=true %command% disables GL error handling, allows fancy gloves to render but may cause instability
 //
 // Linux-focused optimisation guide:
 //
