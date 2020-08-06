@@ -2,9 +2,10 @@
 
 
 // current: 
-mesa_no_error=true AMD_DEBUG=nodma,w64ge,w64ps,w64cs,zerovram,nofmask LP_NUM_THREADS=6 RADV_PERFTEST=aco __GL_THREADED_OPTIMIZATIONS=1 GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 gamemoderun %command% -high -nojoy -noaa -nofxaa -noaafonts -novid -language bananagaming -tickrate 128 +clientport 27027
+mesa_no_error=true AMD_DEBUG=nodma,zerovram,nofmask LP_NUM_THREADS=6 RADV_PERFTEST=aco __GL_THREADED_OPTIMIZATIONS=1 GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 gamemoderun %command% -high -nojoy -noaa -nofxaa -noaafonts -novid -language bananagaming -tickrate 128 +clientport 27027
 
-// NOTE: %command% environment options apply to the launch string and may prevent launch with some hardware eg nvidia GPUs
+
+// NOTE: the %command% environment options apply to the launch string and may prevent launch with some hardware eg nvidia GPUs
 //
 // if more than one computer is running steam on your local network, set the "+clientport 27005" option to anything
 // between and including 27005 and 27032, excluding 27020 and any number in use on another local machine (27005 is default)
@@ -12,19 +13,21 @@ mesa_no_error=true AMD_DEBUG=nodma,w64ge,w64ps,w64cs,zerovram,nofmask LP_NUM_THR
 // https://support.steampowered.com/kb_article.php?ref=6370-QPHJ-3567
 //
 //
-// "-language bananagaming" enables that text color mod, additional files are needed
+// "-language bananagaming" enables that text color mod if installed
 //
-// "strangle 250 %command% " sets an external FPS-limiter for Linux (libstrangle) I'm still only testing it for now
+// "strangle 250 %command%" sets an external FPS-limiter for Linux (libstrangle) I tested briefly, probably best to use the in-game limiter
 //
-// LP_NUM_THREADS=6 %command% 
+// "LP_NUM_THREADS=6 %command%" number of threads for rendering. default is CPU core count
 //
-// gamemoderun %command% for Feral's game mode daemon
+// "AMD_DEBUG=nodma,zerovram %command%" may prevent random artifacting on some GPUs, might hurt or help performance
 //
-// "__GL_THREADED_OPTIMIZATIONS=1 %command%" might hurt performance, might not
+// "gamemoderun %command%" for Feral's game mode daemon
 //
-// AMD_DEBUG=nir %command%
+// "__GL_THREADED_OPTIMIZATIONS=1 %command%" might hurt or help performance
 // 
 // mesa_no_error=true %command% disables GL error handling, allows fancy gloves to render but may cause instability
+//
+// AMD_DEBUG=nir %command%
 //
 // Linux-focused optimisation guide:
 //
