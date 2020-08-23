@@ -9,7 +9,7 @@ this file changes a quite a few settings including volume levels so read each pa
 settings defined here should be set within the file as they apply on launch, overriding the in-game settings menu.
 
 the wierdly-named, all-caps files are configs for offline or custom servers, basically comp behaviour deatchmatch.
-load a map offline casual and exec
+load a map offline casual and exec. 2QUIET is pretty great.
 
 the "splat___.webm" files are smaller, static backgrounds for the enemy counter in DZ.
 drop in to [steamapps/common/Counter-Strike Global Offensive/csgo/panorama/videos] and replace or rename the old file.
