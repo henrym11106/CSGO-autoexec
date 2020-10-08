@@ -2,7 +2,7 @@
 
 
 // current CSGO: 
-gamemoderun mesa_no_error=true AMD_DEBUG=nodcc,nodma,zerovram,nofmask LP_NUM_THREADS=6 RADV_PERFTEST=aco __GL_THREADED_OPTIMIZATIONS=1 GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 %command% -high -nojoy -noaa -nofxaa -noaafonts -novid -language bananagaming -tickrate 128 +clientport 27027
+AMD_DEBUG=nodcc,nodma,zerovram,nofmask R600_DEBUG=nodcc,nodma,zerovram,nofmask gamemoderun GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 RADV_PERFTEST=aco __GL_THREADED_OPTIMIZATIONS=1 LP_NUM_THREADS=6 %command% -high -nojoy -noaa -nofxaa -noaafonts -novid -language bananagaming -tickrate 128 +clientport 27027
 
 
 // NOTE: the %command% environment options apply to the launch string and may prevent launch with some hardware eg nvidia GPUs
