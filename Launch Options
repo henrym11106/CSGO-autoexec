@@ -2,8 +2,7 @@
 
 
 // current CSGO Linux: 
-AMD_DEBUG=nodcc,nodma,zerovram R600_DEBUG=nodcc,nodma,zerovram gamemoderun GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 RADV_PERFTEST=aco __GL_THREADED_OPTIMIZATIONS=1 LP_NUM_THREADS=6 %command% -high -nojoy -nofxaa -noaafonts -novid -language bananagaming -tickrate 128 +clientport 27027
-
+AMD_DEBUG=nodcc,nodma,zerovram R600_DEBUG=nodcc,nodma,zerovram gamemoderun GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 RADV_PERFTEST=aco __GL_THREADED_OPTIMIZATIONS=1 LP_NUM_THREADS=6 %command% -high -nojoy -noaafonts -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -tickrate 128 +clientport 27027
 
 // Windows:
 -high -nojoy -nofxaa -noaafonts -novid -language bananagaming -tickrate 128 +clientport 27027
@@ -29,7 +28,7 @@ AMD_DEBUG=nodcc,nodma,zerovram R600_DEBUG=nodcc,nodma,zerovram gamemoderun GLX_E
 //
 // "__GL_THREADED_OPTIMIZATIONS=1 %command%" might hurt or help performance
 // 
-// mesa_no_error=true %command% disables GL error handling, allowing fancy gloves to render correctly but may cause crashes on some maps
+// mesa_no_error=true %command% disables GL error handling, allowing fancy gloves to render correctly but may cause crashes on some maps eg overpass
 //
 // AMD_DEBUG=nir %command%
 //
