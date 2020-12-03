@@ -29,7 +29,7 @@ AMD_DEBUG=nodcc,nodma,zerovram R600_DEBUG=nodcc,nodma,zerovram gamemoderun GLX_E
 //
 // "__GL_THREADED_OPTIMIZATIONS=1 %command%" might hurt or help performance
 // 
-// mesa_no_error=true %command% disables GL error handling, allows fancy gloves to render but may cause instability
+// mesa_no_error=true %command% disables GL error handling, allowing fancy gloves to render correctly but may cause crashes on some maps
 //
 // AMD_DEBUG=nir %command%
 //
