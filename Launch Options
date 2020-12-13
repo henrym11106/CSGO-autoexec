@@ -2,13 +2,14 @@
 
 
 // current CSGO Linux: 
-AMD_DEBUG=nodcc,nodma,zerovram R600_DEBUG=nodcc,nodma,zerovram gamemoderun GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 RADV_PERFTEST=aco __GL_THREADED_OPTIMIZATIONS=1 LP_NUM_THREADS=6 %command% -high -nojoy -noaafonts -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -tickrate 128 +clientport 27027
+AMD_DEBUG=nodcc,nodma,zerovram,nir gamemoderun GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 RADV_PERFTEST=aco LP_NUM_THREADS=6 %command% -high -nojoy -noaafonts -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -tickrate 128 +clientport 27027
 
 // Windows:
 -high -nojoy -nofxaa -noaafonts -novid -language bananagaming -tickrate 128 +clientport 27027
 
 
 // NOTE: the %command% environment options apply to the launch string and may prevent launch with some hardware eg nvidia GPUs
+// many of these are likely pointless as the drivers constantly improve
 //
 // if more than one computer is running steam on your local network, set the "+clientport 27005" option to anything
 // between and including 27005 and 27032, excluding 27020 and any number in use on another local machine (27005 is default)
@@ -18,27 +19,28 @@ AMD_DEBUG=nodcc,nodma,zerovram R600_DEBUG=nodcc,nodma,zerovram gamemoderun GLX_E
 //
 // "-language bananagaming" enables that text color mod if installedAMD_DEBUG=nodcc,nodma,zerovram R600_DEBUG=nodcc,nodma,zerovram gamemoderun GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 RADV_PERFTEST=aco __GL_THREADED_OPTIMIZATIONS=1 LP_NUM_THREADS=6 %command% -high -nojoy -nofxaa -noaafonts -novid -language bananagaming -tickrate 128 +clientport 27027
 //
-// "strangle 250 %command%" sets an external FPS-limiter for Linux (libstrangle) I tested briefly, probably best to use the in-game limiter
+// "strangle 250 %command%" // external FPS-limiter for Linux (libstrangle) I tested briefly, this one isn't capped but best to use the in-game limiter
 //
-// "LP_NUM_THREADS=6 %command%" number of threads for rendering. default is CPU core count
+// "LP_NUM_THREADS=6 %command%" // number of threads for rendering. default is CPU core count
 //
-// "AMD_DEBUG=nodma,zerovram %command%" may prevent random artifacting on some GPUs, might hurt or help performance
+// "AMD_DEBUG=nodcc,nodma,zerovram %command%" // may prevent random artifacting on some GPUs, might hurt or help performance
 //
-// "gamemoderun %command%" for Feral's game mode daemon
+// R600_DEBUG=nodcc,nodma,zerovram // replaced with AMD_DEBUG
 //
-// "__GL_THREADED_OPTIMIZATIONS=1 %command%" might hurt or help performance
+// "gamemoderun %command%" // for Feral's game mode daemon
+//
+// "__GL_THREADED_OPTIMIZATIONS=1 %command%" // not needed, included in the csgo.sh file
 // 
 // mesa_no_error=true %command% disables GL error handling, allowing fancy gloves to render correctly but may cause crashes on some maps eg overpass
 //
-// AMD_DEBUG=nir %command%
 //
 // Linux-focused optimisation guide:
 //
 // https://steamcommunity.com/sharedfiles/filedetails/?id=1502890492
 
 
-// HL1 Linux
-AMD_DEBUG=nodcc,nodma,zerovram R600_DEBUG=nodcc,nodma,zerovram gamemoderun GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 LP_NUM_THREADS=1 %command% -novid +exec hl1exec.cfg
+// HL1 Linux, goldsrc games
+AMD_DEBUG=nodcc,nodma,zerovram gamemoderun GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 LP_NUM_THREADS=1 %command% -novid +exec hl1exec.cfg
 
-// HL2 Linux
-AMD_DEBUG=nodcc,nodma,zerovram R600_DEBUG=nodcc,nodma,zerovram gamemoderun GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 RADV_PERFTEST=aco __GL_THREADED_OPTIMIZATIONS=1 LP_NUM_THREADS=6 __GL_THREADED_OPTIMIZATIONS=1 %command% -novid +exec hl2exec
+// HL2 Linux, old Source games
+AMD_DEBUG=nodcc,nodma,zerovram gamemoderun GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 RADV_PERFTEST=aco __GL_THREADED_OPTIMIZATIONS=1 LP_NUM_THREADS=6 __GL_THREADED_OPTIMIZATIONS=1 %command% -novid +exec hl2exec
