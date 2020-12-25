@@ -2,7 +2,7 @@
 
 
 // current CSGO Linux: 
-AMD_DEBUG=nodcc,nodma,zerovram,nir gamemoderun GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 RADV_PERFTEST=aco LP_NUM_THREADS=6 %command% -high -nojoy -noaafonts -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -tickrate 128 +clientport 27027
+AMD_DEBUG=nodcc,nodma,zerovram,nir gamemoderun MESA_GL_VERSION_OVERRIDE=4.2 MESA_GLSL_VERSION_OVERRIDE=420 GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 RADV_PERFTEST=aco LP_NUM_THREADS=6 %command% -high -nojoy -noaafonts -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -tickrate 64 +clientport 27027
 
 // Windows:
 -high -nojoy -nofxaa -noaafonts -novid -language bananagaming -tickrate 128 +clientport 27027
@@ -40,7 +40,7 @@ AMD_DEBUG=nodcc,nodma,zerovram,nir gamemoderun GLX_EXT_swap_control_tear=0 tearf
 
 
 // HL1 Linux, goldsrc games
-AMD_DEBUG=nodcc,nodma,zerovram gamemoderun GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 LP_NUM_THREADS=1 %command% -novid +exec hl1exec.cfg
+AMD_DEBUG=nodcc,nodma,zerovram GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 %command% -novid +exec hl1exec.cfg
 
 // HL2 Linux, old Source games
-AMD_DEBUG=nodcc,nodma,zerovram gamemoderun GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 RADV_PERFTEST=aco __GL_THREADED_OPTIMIZATIONS=1 LP_NUM_THREADS=6 __GL_THREADED_OPTIMIZATIONS=1 %command% -novid +exec hl2exec
+AMD_DEBUG=nodcc,nodma,zerovram gamemoderun GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 RADV_PERFTEST=aco __GL_THREADED_OPTIMIZATIONS=1 LP_NUM_THREADS=3 %command% -novid +exec hl2exec
