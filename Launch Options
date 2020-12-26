@@ -2,7 +2,7 @@
 
 
 // current CSGO Linux: 
-AMD_DEBUG=nodcc,nodma,zerovram,nir gamemoderun MESA_GL_VERSION_OVERRIDE=4.2 MESA_GLSL_VERSION_OVERRIDE=420 GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 RADV_PERFTEST=aco LP_NUM_THREADS=6 %command% -high -nojoy -noaafonts -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -tickrate 64 +clientport 27027
+AMD_DEBUG=nodcc,nodma,zerovram gamemoderun MESA_GL_VERSION_OVERRIDE=4.2 MESA_GLSL_VERSION_OVERRIDE=420 RADV_PERFTEST=aco LP_NUM_THREADS=6 %command% -high -nojoy -noaafonts -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -tickrate 128 +clientport 27027 //+map de_dust2
 
 // Windows:
 -high -nojoy -nofxaa -noaafonts -novid -language bananagaming -tickrate 128 +clientport 27027
@@ -17,7 +17,7 @@ AMD_DEBUG=nodcc,nodma,zerovram,nir gamemoderun MESA_GL_VERSION_OVERRIDE=4.2 MESA
 // https://support.steampowered.com/kb_article.php?ref=6370-QPHJ-3567
 //
 //
-// "-language bananagaming" enables that text color mod if installedAMD_DEBUG=nodcc,nodma,zerovram R600_DEBUG=nodcc,nodma,zerovram gamemoderun GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 RADV_PERFTEST=aco __GL_THREADED_OPTIMIZATIONS=1 LP_NUM_THREADS=6 %command% -high -nojoy -nofxaa -noaafonts -novid -language bananagaming -tickrate 128 +clientport 27027
+// "-language bananagaming" enables that text color mod if installed
 //
 // "strangle 250 %command%" // external FPS-limiter for Linux (libstrangle) I tested briefly, this one isn't capped but best to use the in-game limiter
 //
@@ -31,7 +31,7 @@ AMD_DEBUG=nodcc,nodma,zerovram,nir gamemoderun MESA_GL_VERSION_OVERRIDE=4.2 MESA
 //
 // "__GL_THREADED_OPTIMIZATIONS=1 %command%" // not needed, included in the csgo.sh file
 // 
-// mesa_no_error=true %command% disables GL error handling, allowing fancy gloves to render correctly but may cause crashes on some maps eg overpass
+// mesa_no_error=true %command% disables GL error handling, allows fancy gloves to render correctly but may cause crashing on some maps eg overpass
 //
 //
 // Linux-focused optimisation guide:
@@ -43,4 +43,4 @@ AMD_DEBUG=nodcc,nodma,zerovram,nir gamemoderun MESA_GL_VERSION_OVERRIDE=4.2 MESA
 AMD_DEBUG=nodcc,nodma,zerovram GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 %command% -novid +exec hl1exec.cfg
 
 // HL2 Linux, old Source games
-AMD_DEBUG=nodcc,nodma,zerovram gamemoderun GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 RADV_PERFTEST=aco __GL_THREADED_OPTIMIZATIONS=1 LP_NUM_THREADS=3 %command% -novid +exec hl2exec
+AMD_DEBUG=nodcc,nodma,zerovram gamemoderun GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 __GL_THREADED_OPTIMIZATIONS=1 LP_NUM_THREADS=3 %command% -novid +exec hl2exec
