@@ -40,7 +40,7 @@ AMD_DEBUG=nodcc,nodma,zerovram gamemoderun MESA_GL_VERSION_OVERRIDE=4.2 MESA_GLS
 
 
 // HL1 Linux, goldsrc games
-AMD_DEBUG=nodcc,nodma,zerovram GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 %command% -novid +exec hl1exec.cfg
+AMD_DEBUG=nodcc,nodma,zerovram %command% -novid +exec hl1exec.cfg
 
 // HL2 Linux, old Source games
-AMD_DEBUG=nodcc,nodma,zerovram gamemoderun GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 __GL_THREADED_OPTIMIZATIONS=1 LP_NUM_THREADS=3 %command% -novid +exec hl2exec
+AMD_DEBUG=nodcc,nodma,zerovram gamemoderun __GL_THREADED_OPTIMIZATIONS=1 LP_NUM_THREADS=3 %command% -novid +exec hl2exec
