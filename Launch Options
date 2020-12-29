@@ -2,7 +2,7 @@
 
 
 // current CSGO Linux: 
-AMD_DEBUG=nodcc,nodma,zerovram gamemoderun MESA_GL_VERSION_OVERRIDE=4.2 MESA_GLSL_VERSION_OVERRIDE=420 RADV_PERFTEST=aco LP_NUM_THREADS=6 %command% -high -nojoy -noaafonts -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -tickrate 128 +clientport 27027 //+map de_dust2
+__GL_FSAA_MODE=0 AMD_DEBUG=nodcc,nodma,zerovram MESA_GL_VERSION_OVERRIDE=4.6 MESA_GLSL_VERSION_OVERRIDE=460 RADV_PERFTEST=aco LP_NUM_THREADS=6 gamemoderun %command% -high -nojoy -noaafonts -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -tickrate 64 +clientport 27027
 
 // Windows:
 -high -nojoy -nofxaa -noaafonts -novid -language bananagaming -tickrate 128 +clientport 27027
@@ -24,7 +24,7 @@ AMD_DEBUG=nodcc,nodma,zerovram gamemoderun MESA_GL_VERSION_OVERRIDE=4.2 MESA_GLS
 // "LP_NUM_THREADS=6 %command%" // number of threads for LLVMpipe rendering. default is CPU core count
 // "AMD_DEBUG=nodcc,nodma,zerovram %command%" // may prevent random artifacting on some GPUs, might hurt or help performance
 // "__GL_THREADED_OPTIMIZATIONS=1 %command%" // not needed, included in the csgo.sh file
-// "MESA_GL_VERSION_OVERRIDE=4.2 MESA_GLSL_VERSION_OVERRIDE=420" // probably not needed for csgo
+// "MESA_GL_VERSION_OVERRIDE=4.6 MESA_GLSL_VERSION_OVERRIDE=460" // probably not needed for csgo
 //
 // "strangle 250 %command%" // external FPS-limiter for Linux (libstrangle) I tested briefly, this one isn't capped but best to use the in-game limiter
 //
