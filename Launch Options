@@ -2,7 +2,7 @@
 
 
 // current CSGO Linux: 
-AMD_DEBUG=nodcc,nodma,zerovram LP_NUM_THREADS=6 MESA_GL_VERSION_OVERRIDE=4.6 MESA_GLSL_VERSION_OVERRIDE=460 RADV_PERFTEST=aco __GL_FSAA_MODE=0 gamemoderun %command% -high -nojoy -noaafonts -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -tickrate 128 +clientport 27027
+AMD_DEBUG=nodcc,nodma,zerovram LP_NUM_THREADS=6 RADV_PERFTEST=aco __GL_FSAA_MODE=0 gamemoderun %command% -high -nojoy -noaafonts -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -tickrate 128 +clientport 27027
 
 // Windows:
 -high -nojoy -nofxaa -noaafonts -novid -language bananagaming -tickrate 128 +clientport 27027
@@ -11,28 +11,28 @@ AMD_DEBUG=nodcc,nodma,zerovram LP_NUM_THREADS=6 MESA_GL_VERSION_OVERRIDE=4.6 MES
 // NOTE: the %command% environment options apply to the launch string and may prevent launch with some hardware eg nvidia GPUs
 // some of these are likely pointless as the drivers are constantly in development
 //
-// if more than one computer is running steam on your local network, set the "+clientport 27005" option to anything
+// if more than one computer is running steam on your local network, set "+clientport 27027" to anything
 // between and including 27005 and 27032, excluding 27020 and any number in use on another local machine (27005 is default)
 //
 // https://support.steampowered.com/kb_article.php?ref=6370-QPHJ-3567
 //
 //
+// "AMD_DEBUG=nodcc,nodma,zerovram %command%" // may prevent random artifacting on some GPUs, can hurt or help performance
+// "LP_NUM_THREADS=6 %command%" // threads for rendering. default = CPU core count, reduce number to free up CPU eg for screen recording
 // "-language bananagaming" // enables that text color mod if installed
-//
 // "gamemoderun %command%" // invoke Feral's gamemode daemon. I use it to set niceness etc.
 //                         // enabling performance CPU governer is also beneficial, I use corectrl for that + GPU control
 //
-// "LP_NUM_THREADS=6 %command%" // threads for rendering. default = CPU core count, reduce number to free up CPU eg for screen recording
-// "AMD_DEBUG=nodcc,nodma,zerovram %command%" // may prevent random artifacting on some GPUs, might hurt or help performance
-// "__GL_THREADED_OPTIMIZATIONS=1 %command%" // not needed, included in the csgo.sh file
-// "MESA_GL_VERSION_OVERRIDE=4.6 MESA_GLSL_VERSION_OVERRIDE=460" // probably not needed for csgo
 //
+// mesa_no_error=true %command% // disables GL error handling, allows fancy gloves to render correctly but may cause crashing on some maps eg overpass
 // "strangle 250 %command%" // external FPS-limiter for Linux (libstrangle) I tested briefly, this one isn't capped but best to use the in-game limiter
+//
+// "__GL_THREADED_OPTIMIZATIONS=1 %command%" // not needed, included in the csgo.sh file
+// "MESA_GL_VERSION_OVERRIDE=4.6 MESA_GLSL_VERSION_OVERRIDE=460" // enable higher GL version, not needed for csgo
 //
 // R600_DEBUG=nodcc,nodma,zerovram // old r600 driver option, replaced with AMD_DEBUG
 // "GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 %command%" // old DRI-2 options
 // 
-// mesa_no_error=true %command% // disables GL error handling, allows fancy gloves to render correctly but may cause crashing on some maps eg overpass
 //
 //
 // Linux-focused optimisation guide:
