@@ -2,7 +2,7 @@
 
 
 // current CSGO Linux: 
-AMD_DEBUG=nodcc,nodma,zerovram LP_NUM_THREADS=6 RADV_PERFTEST=aco __GL_FSAA_MODE=0 gamemoderun %command% -high -nojoy -noaafonts -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -tickrate 128 +clientport 27027
+RADV_PERFTEST=aco LP_NUM_THREADS=6 AMD_DEBUG=nodcc,nodma,zerovram __GL_FSAA_MODE=0 gamemoderun %command% -high -nojoy -noaafonts -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -tickrate 128 +clientport 27027
 
 // Windows:
 -high -nojoy -nofxaa -noaafonts -novid -language bananagaming -tickrate 128 +clientport 27027
@@ -15,8 +15,8 @@ AMD_DEBUG=nodcc,nodma,zerovram LP_NUM_THREADS=6 RADV_PERFTEST=aco __GL_FSAA_MODE
 // between and including 27005 and 27032, excluding 27020 and any number in use on another local machine (27005 is default)
 //
 // https://support.steampowered.com/kb_article.php?ref=6370-QPHJ-3567
-//
-//
+
+
 // "AMD_DEBUG=nodcc,nodma,zerovram %command%" // may prevent random artifacting on some GPUs, can hurt or help performance
 // "LP_NUM_THREADS=6 %command%" // threads for rendering. default = CPU core count, reduce number to free up CPU eg for screen recording
 // "-language bananagaming" // enables that text color mod if installed
@@ -44,4 +44,4 @@ AMD_DEBUG=nodcc,nodma,zerovram LP_NUM_THREADS=6 RADV_PERFTEST=aco __GL_FSAA_MODE
 AMD_DEBUG=nodcc,nodma,zerovram %command% -novid +exec hl1exec.cfg
 
 // HL2 Linux, old Source games
-LP_NUM_THREADS=3 AMD_DEBUG=nodcc,nodma,zerovram gamemoderun __GL_THREADED_OPTIMIZATIONS=1 %command% -novid +exec hl2exec
+LP_NUM_THREADS=3 gamemoderun AMD_DEBUG=nodcc,nodma,zerovram __GL_THREADED_OPTIMIZATIONS=1 %command% -novid +exec hl2exec
