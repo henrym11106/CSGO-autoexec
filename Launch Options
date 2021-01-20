@@ -1,8 +1,8 @@
 // LAUNCH OPTIONS
 
 
-// current CSGO Linux: 
-RADV_PERFTEST=aco LP_NUM_THREADS=6 AMD_DEBUG=nodcc,nodma,zerovram __GL_FSAA_MODE=0 gamemoderun %command% -high -nojoy -noaafonts -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -tickrate 128 +clientport 27027
+// current CSGO Linux:
+RADV_PERFTEST=aco LP_NUM_THREADS=6 AMD_DEBUG=nodcc,nodma,zerovram gamemoderun %command% -high -nojoy -noaafonts -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -tickrate 128 +clientport 27027
 
 // Windows:
 -high -nojoy -nofxaa -noaafonts -novid -language bananagaming -tickrate 128 +clientport 27027
@@ -27,8 +27,9 @@ RADV_PERFTEST=aco LP_NUM_THREADS=6 AMD_DEBUG=nodcc,nodma,zerovram __GL_FSAA_MODE
 // mesa_no_error=true %command% // disables GL error handling, allows fancy gloves to render correctly but may cause crashing on some maps eg overpass
 // "strangle 250 %command%" // external FPS-limiter for Linux (libstrangle) I tested briefly, this one isn't capped but best to use the in-game limiter
 //
-// "__GL_THREADED_OPTIMIZATIONS=1 %command%" // not needed, included in the csgo.sh file
-// "MESA_GL_VERSION_OVERRIDE=4.6 MESA_GLSL_VERSION_OVERRIDE=460" // enable higher GL version, not needed for csgo
+// __GL_FSAA_MODE=0 %command%" %command%" // nvidia gl option 
+// "__GL_THREADED_OPTIMIZATIONS=1 %command%" // nvidia gl option, not needed, included in the csgo.sh file
+// "MESA_GL_VERSION_OVERRIDE=4.6 MESA_GLSL_VERSION_OVERRIDE=460" %command%" // enable higher GL version, not needed for csgo
 //
 // R600_DEBUG=nodcc,nodma,zerovram // old r600 driver option, replaced with AMD_DEBUG
 // "GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 %command%" // old DRI-2 options
