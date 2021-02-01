@@ -2,10 +2,10 @@
 
 
 // current CSGO Linux:
-gamemoderun RADV_PERFTEST=aco LP_NUM_THREADS=6 AMD_DEBUG=nodcc,nodma %command% -high -nojoy -noaafonts -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -tickrate 64 +clientport 27027
+gamemoderun RADV_PERFTEST=aco LP_NUM_THREADS=5 AMD_DEBUG=nodcc,nodma %command% -high -nojoy -noaafonts -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -threads 5 -tickrate 128 +clientport 27027
 
 // Windows:
--high -nojoy -nofxaa -noaafonts -novid -language bananagaming -tickrate 128 +clientport 27027
+-high -nojoy -nofxaa -noaafonts -novid -language bananagaming -threads 5 -tickrate 128 +clientport 27027
 
 
 // NOTE: the %command% environment options apply to the launch string and may prevent launch with some hardware eg nvidia GPUs
