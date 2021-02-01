@@ -2,7 +2,7 @@
 
 
 // current CSGO Linux:
-RADV_PERFTEST=aco LP_NUM_THREADS=6 AMD_DEBUG=nodcc,nodma,zerovram gamemoderun %command% -high -nojoy -noaafonts -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -tickrate 128 +clientport 27027
+gamemoderun RADV_PERFTEST=aco LP_NUM_THREADS=6 AMD_DEBUG=nodcc,nodma %command% -high -nojoy -noaafonts -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -tickrate 64 +clientport 27027
 
 // Windows:
 -high -nojoy -nofxaa -noaafonts -novid -language bananagaming -tickrate 128 +clientport 27027
@@ -34,6 +34,7 @@ RADV_PERFTEST=aco LP_NUM_THREADS=6 AMD_DEBUG=nodcc,nodma,zerovram gamemoderun %c
 // R600_DEBUG=nodcc,nodma,zerovram // old r600 driver option, replaced with AMD_DEBUG
 // "GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 %command%" // old DRI-2 options
 // 
+// -nojoy // disables joypad detection. can prevent performance issues and even crashing on some systems
 //
 //
 // Linux-focused optimisation guide:
