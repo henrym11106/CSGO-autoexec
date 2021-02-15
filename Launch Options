@@ -2,7 +2,7 @@
 
 
 // current CSGO Linux:
-gamemoderun RADV_PERFTEST=aco LP_NUM_THREADS=5 AMD_DEBUG=nodcc,nodma %command% -high -nojoy -noaafonts -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -threads 5 -tickrate 128 +clientport 27027
+gamemoderun RADV_PERFTEST=aco LP_NUM_THREADS=5 AMD_DEBUG=nodcc,nodma %command% -high -nojoy -noaafonts -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -threads 5 -tickrate 64 +clientport 27027
 
 // screen recording Linux
 AMD_DEBUG=nodcc,nodma RADV_PERFTEST=aco LP_NUM_THREADS=3 %command% -cl_forcepreload 1 -sv_forcepreload 1 -threads 3 -high -nojoy -novid -language bananagaming -tickrate 64 +clientport 27027
@@ -17,7 +17,7 @@ AMD_DEBUG=nodcc,nodma RADV_PERFTEST=aco LP_NUM_THREADS=3 %command% -cl_forceprel
 // if more than one computer is running steam on your local network, set "+clientport 27027" to anything
 // between and including 27005 and 27032, excluding 27020 and any number in use on another local machine (27005 is default)
 //
-// https://support.steampowered.com/kb_article.php?ref=6370-QPHJ-3567
+// https://support.steampowered.com/kb_article.php?ref=6370-QPHJ-3567   -r_emulate_gl
 
 
 // "AMD_DEBUG=nodcc,nodma,zerovram %command%" // may prevent random artifacting on some GPUs, can hurt or help performance
@@ -38,6 +38,7 @@ AMD_DEBUG=nodcc,nodma RADV_PERFTEST=aco LP_NUM_THREADS=3 %command% -cl_forceprel
 // "GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 %command%" // old DRI-2 options
 // 
 // -nojoy // disables joypad detection. can prevent performance issues and even crashing on some systems
+//  -r_emulate_gl // force openGL on windows?
 //
 //
 // Linux-focused optimisation guide:
