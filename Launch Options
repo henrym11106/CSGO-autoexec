@@ -2,10 +2,10 @@
 
 
 // current CSGO Linux:
-gamemoderun RADV_PERFTEST=aco LP_NUM_THREADS=5 AMD_DEBUG=nodcc,nodma %command% -high -nojoy -noaafonts -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -threads 5 -tickrate 64 +clientport 27027
+gamemoderun RADV_PERFTEST=aco AMD_DEBUG=nodcc,nodma %command% -high -nojoy -noaafonts -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -threads 5 -tickrate 128 +clientport 27027
 
 // screen recording Linux
-AMD_DEBUG=nodcc,nodma RADV_PERFTEST=aco LP_NUM_THREADS=3 %command% -cl_forcepreload 1 -sv_forcepreload 1 -threads 3 -high -nojoy -novid -language bananagaming -tickrate 64 +clientport 27027
+AMD_DEBUG=nodcc,nodma RADV_PERFTEST=aco %command% -cl_forcepreload 1 -sv_forcepreload 1 -threads 3 -high -nojoy -novid -language bananagaming -tickrate 64 +clientport 27027
 
 // Windows:
 -high -nojoy -nofxaa -noaafonts -novid -language bananagaming -threads 5 -tickrate 128 +clientport 27027
@@ -23,9 +23,9 @@ AMD_DEBUG=nodcc,nodma RADV_PERFTEST=aco LP_NUM_THREADS=3 %command% -cl_forceprel
 // "AMD_DEBUG=nodcc,nodma,zerovram %command%" // may prevent random artifacting on some GPUs, can hurt or help performance
 // "-language bananagaming" // enables that text color mod if installed
 // "gamemoderun %command%" // invoke Feral's gamemode daemon. I use it to set niceness etc.
-//                         // enabling performance CPU governer is also beneficial, I use corectrl for that + GPU control
+//                         // enabling performance CPU governer is very beneficial, I use corectrl for that + GPU control
 //
-// "LP_NUM_THREADS=5 %command%" // LLVMPipe threads. default=CPU core count, that minus one might be better. reduce to free up CPU eg for screen recording
+// "LP_NUM_THREADS=5 %command%" // LLVMPipe threads. default=CPU core count, probably not relavent for CSGO
 //
 // mesa_no_error=true %command% // disables GL error handling, allows fancy gloves to render correctly but may cause crashing on some maps eg overpass
 // "strangle 250 %command%" // external FPS-limiter for Linux (libstrangle) I tested briefly, this one isn't capped but best to use the in-game limiter
@@ -50,4 +50,4 @@ AMD_DEBUG=nodcc,nodma RADV_PERFTEST=aco LP_NUM_THREADS=3 %command% -cl_forceprel
 AMD_DEBUG=nodcc,nodma,zerovram %command% -novid +exec hl1exec.cfg
 
 // HL2 Linux, old Source games
-LP_NUM_THREADS=3 gamemoderun AMD_DEBUG=nodcc,nodma,zerovram __GL_THREADED_OPTIMIZATIONS=1 %command% -novid +exec hl2exec
+gamemoderun AMD_DEBUG=nodcc,nodma,zerovram __GL_THREADED_OPTIMIZATIONS=1 %command% -novid +exec hl2exec
