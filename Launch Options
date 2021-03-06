@@ -8,22 +8,21 @@ gamemoderun %command% -nojoy -novid -cl_forcepreload 1 -sv_forcepreload 1 -maxdo
 -cl_forcepreload 1 -sv_forcepreload 1 -high -nojoy -novid -language bananagaming -tickrate 64 +clientport 27005
 
 // Windows:
--high -nojoy -nofxaa -noaafonts -novid -language bananagaming -tickrate 128 +clientport 27027
+-high -nojoy -nofxaa -novid -language bananagaming -tickrate 128 +clientport 27027
 
 
-// NOTE: the %command% environment options apply to the launch string and may prevent launch with some hardware eg nvidia GPUs
-// some of these are likely pointless as the drivers are constantly in development
-//
+// NOTE: the %command% environment options apply to the launch string and may prevent launch in some situations
+// some options are likely to be reduntant as the Linux drivers are constantly in development
+
 // if more than one computer is running steam on your local network, set "+clientport 27027" to anything
 // between and including 27005 and 27032, excluding 27020 and any number in use on another local machine (27005 is default)
-//
-// https://support.steampowered.com/kb_article.php?ref=6370-QPHJ-3567   -r_emulate_gl
+// https://support.steampowered.com/kb_article.php?ref=6370-QPHJ-3567
 
-
-// "-maxdownloadfilesizemb N" // maximum in-game downloaded file size that will not be rejected.
+// "-maxdownloadfilesizemb N" // maximum in-game downloaded file size that will not be rejected. "N" to disable cap
 // "-nojoy" // disables joypad detection. can prevent performance issues and even crashing on some systems
 //
-// "AMD_DEBUG=nodcc,nodma,zerovram %command%" // may prevent random artifacting on some GPUs, can hurt or help performance
+// "RADV_PERFTEST=aco %command%" enable the Valve-supported ACO compiler for Vulkan. might be default behaviour now
+// "AMD_DEBUG=nodcc,nodma,zerovram %command%" // may prevent artifacts on some GPUs, might be better off set globally
 // "-language bananagaming" // enables that text color mod if installed
 // "gamemoderun %command%" // invoke Feral's gamemode daemon. I use it to set niceness etc.
 //                         // enabling performance CPU governer is very beneficial, I use corectrl for that + GPU control
@@ -37,10 +36,10 @@ gamemoderun %command% -nojoy -novid -cl_forcepreload 1 -sv_forcepreload 1 -maxdo
 // "strangle 250 %command%" // external FPS-limiter for Linux (libstrangle) I tested briefly, this one isn't capped but best to use the in-game limiter
 // 
 // "-r_emulate_gl" // force openGL on windows?
-//
-//
-//
-// WARNING: the below options might trigger a possible bug with Trust Factor. these options can be set via ~/.drirc file instead
+
+
+
+// WARNING: the below commands may trigger a possible serious issue with Trust Factor. these options can be set via ~/.drirc file instead
 //
 // "radeonsi_clamp_div_by_zero=true %command%" // (clamp divide-by-zero to NaN) workaround for a bug in Dangerzone, default for mesa 20.3.3+
 // "mesa_glthread=true" enable multithread optimizations. good perf boost, default behaviour for mesa 21
