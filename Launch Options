@@ -1,11 +1,8 @@
 // LAUNCH OPTIONS 
 
 
-// current CSGO Linux:
+// CSGO Linux:
 gamemoderun %command% -nojoy -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -maxdownloadfilesizemb N -language bananagaming -tickrate 128 +clientport 27005
-
-// screen recording CS:GO Linux
--cl_forcepreload 1 -sv_forcepreload 1 -high -nojoy -novid -language bananagaming -tickrate 64 +clientport 27005
 
 // CS:GO Windows:
 -nojoy -nofxaa -novid -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -tickrate 128 +clientport 27005
@@ -18,14 +15,14 @@ gamemoderun %command% -cl_forcepreload 1 -sv_forcepreload 1 -novid -nojoy +exec 
 gamemoderun RADV_PERFTEST=aco %command% -cl_forcepreload 1 -sv_forcepreload 1 -novid -nojoy -vulkan +exec p2exec.cfg
 
 // HL1, goldsrc games
--novid -nojoy +exec hl1exec.cfg
+gamemoderun %command% -novid -nojoy +exec hl1exec.cfg
 
 
 // if more than one computer is running steam on your local network, set "+clientport 27027" to anything
 // between and including 27005 and 27032, excluding 27020 and any number in use on another local machine (27005 is default)
 // https://support.steampowered.com/kb_article.php?ref=6370-QPHJ-3567
 
-// NOTE: the %command% environment options apply to the launch string and may prevent launch in some situations
+// "%command%" options apply to the launch string and can prevent launch in some scenarios. separate with spaces before one "%command%"
 // some options are likely to be reduntant as the Linux drivers are constantly in development
 
 // "-maxdownloadfilesizemb N" // maximum in-game downloaded file size that will not be rejected. "N" to disable cap
@@ -34,7 +31,7 @@ gamemoderun RADV_PERFTEST=aco %command% -cl_forcepreload 1 -sv_forcepreload 1 -n
 // "-vulkan" // enable the Vulkan renderer in supported games, eg Portal 2 and DOTA 2
 //
 // "RADV_PERFTEST=aco %command%" enable the Valve-supported ACO compiler for Vulkan. might be default behaviour now
-// "AMD_DEBUG=nodcc,nodma,zerovram %command%" // may prevent artifacts on some GPUs, might be better off set globally
+// "AMD_DEBUG=nodcc,nodma %command%" // may prevent artifacts on some GPUs, might be better off set globally
 // "-language bananagaming" // enables that text color mod if installed
 // "gamemoderun %command%" // invoke Feral's gamemode daemon. I use it to set niceness etc.
 //                         // enabling performance CPU governer is very beneficial, I use corectrl for that + GPU control
@@ -51,7 +48,7 @@ gamemoderun RADV_PERFTEST=aco %command% -cl_forcepreload 1 -sv_forcepreload 1 -n
 
 
 
-// WARNING: the below commands may trigger a possible serious issue with Trust Factor. these options can be set via ~/.drirc file instead
+// WARNING: the following commands may trigger a possible serious issue with Trust Factor. these options can be set via ~/.drirc file instead
 //
 // "radeonsi_clamp_div_by_zero=true %command%" // (clamp divide-by-zero to NaN) workaround for a bug in Dangerzone, default for mesa 20.3.3+
 // "mesa_glthread=true" enable multithread optimizations. good perf boost, default behaviour for mesa 21
