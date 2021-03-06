@@ -31,11 +31,11 @@ gamemoderun %command% -novid -nojoy +exec hl1exec.cfg
 // "-cl_forcepreload 1 -sv_forcepreload 1" // prioritize caching textures, shaders etc. may prevent stuttering
 // "-vulkan" // enable the Vulkan renderer in supported games, eg Portal 2 and DOTA 2
 //
+// "AMD_DEBUG=nodcc,nodma %command%" // prevent artifacts on some GPUs, can set globally eg "export AMD_DEBUG=nodcc,nodma" startup bash file
 // "RADV_PERFTEST=aco %command%" enable the Valve-supported ACO compiler for Vulkan. might be default behaviour now
-// "AMD_DEBUG=nodcc,nodma %command%" // may prevent artifacts on some GPUs, can set globally by "export AMD_DEBUG=nodcc,nodma" bash file
-// "-language bananagaming" // enables that text color mod if installed
+// "-language bananagaming" // enables that text color mod/language setting if present
 // "gamemoderun %command%" // invoke Feral's gamemode daemon. I use it to set niceness etc.
-//                         // enabling performance CPU governer is very beneficial, I use corectrl for that + GPU control
+//                         // the performance CPU governer is very beneficial, I use "corectrl" for that + GPU control
 //
 //
 // "__GL_FSAA_MODE=0" %command%" %command%" // nvidia gl option 
