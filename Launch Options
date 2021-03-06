@@ -18,7 +18,7 @@ gamemoderun RADV_PERFTEST=aco %command% -cl_forcepreload 1 -sv_forcepreload 1 -n
 gamemoderun %command% -novid -nojoy +exec hl1exec.cfg
 
 
-// if more than one computer is running steam on your local network, set "+clientport 27027" to anything
+// if more than one computer is running online steam games on your local network, set "+clientport 27005" to anything
 // between and including 27005 and 27032, excluding 27020 and any number in use on another local machine (27005 is default)
 // https://support.steampowered.com/kb_article.php?ref=6370-QPHJ-3567
 
