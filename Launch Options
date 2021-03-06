@@ -2,24 +2,36 @@
 
 
 // current CSGO Linux:
-gamemoderun %command% -nojoy -novid -cl_forcepreload 1 -sv_forcepreload 1 -maxdownloadfilesizemb N -language bananagaming -tickrate 128 +clientport 27005
+gamemoderun %command% -nojoy -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -maxdownloadfilesizemb N -language bananagaming -tickrate 128 +clientport 27005
 
-// screen recording Linux
+// screen recording CS:GO Linux
 -cl_forcepreload 1 -sv_forcepreload 1 -high -nojoy -novid -language bananagaming -tickrate 64 +clientport 27005
 
-// Windows:
--high -nojoy -nofxaa -novid -language bananagaming -tickrate 128 +clientport 27027
+// CS:GO Windows:
+-nojoy -nofxaa -novid -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -tickrate 128 +clientport 27005
 
 
-// NOTE: the %command% environment options apply to the launch string and may prevent launch in some situations
-// some options are likely to be reduntant as the Linux drivers are constantly in development
+// HL2 Linux, old Source games
+gamemoderun %command% -cl_forcepreload 1 -sv_forcepreload 1 -novid -nojoy +exec hl2exec.cfg
+
+// Portal 2 Linux
+gamemoderun RADV_PERFTEST=aco %command% -cl_forcepreload 1 -sv_forcepreload 1 -novid -nojoy -vulkan +exec p2exec.cfg
+
+// HL1, goldsrc games
+-novid -nojoy +exec hl1exec.cfg
+
 
 // if more than one computer is running steam on your local network, set "+clientport 27027" to anything
 // between and including 27005 and 27032, excluding 27020 and any number in use on another local machine (27005 is default)
 // https://support.steampowered.com/kb_article.php?ref=6370-QPHJ-3567
 
+// NOTE: the %command% environment options apply to the launch string and may prevent launch in some situations
+// some options are likely to be reduntant as the Linux drivers are constantly in development
+
 // "-maxdownloadfilesizemb N" // maximum in-game downloaded file size that will not be rejected. "N" to disable cap
 // "-nojoy" // disables joypad detection. can prevent performance issues and even crashing on some systems
+// "-cl_forcepreload 1 -sv_forcepreload 1" // prioritize caching textures, shaders etc. may prevent stuttering
+// "-vulkan" // enable the Vulkan renderer in supported games, eg Portal 2 and DOTA 2
 //
 // "RADV_PERFTEST=aco %command%" enable the Valve-supported ACO compiler for Vulkan. might be default behaviour now
 // "AMD_DEBUG=nodcc,nodma,zerovram %command%" // may prevent artifacts on some GPUs, might be better off set globally
@@ -35,7 +47,7 @@ gamemoderun %command% -nojoy -novid -cl_forcepreload 1 -sv_forcepreload 1 -maxdo
 // "GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 %command%" // old DRI-2 options
 // "strangle 250 %command%" // external FPS-limiter for Linux (libstrangle) I tested briefly, this one isn't capped but best to use the in-game limiter
 // 
-// "-r_emulate_gl" // force openGL on windows?
+// "-r_emulate_gl" // force openGL on windows???
 
 
 
@@ -45,14 +57,8 @@ gamemoderun %command% -nojoy -novid -cl_forcepreload 1 -sv_forcepreload 1 -maxdo
 // "mesa_glthread=true" enable multithread optimizations. good perf boost, default behaviour for mesa 21
 // "mesa_no_error=true" %command% // disables GL error handling. allows fancy gloves to render correctly, may cause crashing on some maps eg overpass
 // "MESA_GL_VERSION_OVERRIDE=4.6 MESA_GLSL_VERSION_OVERRIDE=460" %command%" // enable higher GL version, not needed for csgo
-//
+
+
 // Linux-focused optimisation guide:
 //
 // https://steamcommunity.com/sharedfiles/filedetails/?id=1502890492
-
-
-// HL1 Linux, goldsrc games
-AMD_DEBUG=nodcc,nodma,zerovram %command% -novid +exec hl1exec.cfg
-
-// HL2 Linux, old Source games
-gamemoderun AMD_DEBUG=nodcc,nodma,zerovram __GL_THREADED_OPTIMIZATIONS=1 %command% -novid +exec hl2exec
