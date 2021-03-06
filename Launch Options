@@ -2,10 +2,10 @@
 
 
 // CSGO Linux:
-gamemoderun %command% -nojoy -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -maxdownloadfilesizemb N -language bananagaming -tickrate 128 +clientport 27005
+gamemoderun %command% -nojoy -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -maxdownloadfilesizemb 1024 -language bananagaming -tickrate 128 +clientport 27005
 
 // CS:GO Windows:
--nojoy -nofxaa -novid -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -tickrate 128 +clientport 27005
+-nojoy -nofxaa -novid -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -maxdownloadfilesizemb 1024 -tickrate 128 +clientport 27005
 
 
 // HL2 Linux, old Source games
@@ -26,7 +26,7 @@ gamemoderun %command% -novid -nojoy +exec hl1exec.cfg
 // some options are likely to be reduntant as the Linux drivers are constantly in development
 
 // "-tickrate 128" // server updates per second. effects many things, every activity has it's own reasons for different tick rates
-// "-maxdownloadfilesizemb N" // maximum in-game downloaded file size that will not be rejected. "N" to disable cap
+// "-maxdownloadfilesizemb 1024" // maximum in-game downloaded file size that will not be rejected
 // "-nojoy" // disables joypad detection. can prevent performance issues and even crashing on some systems
 // "-cl_forcepreload 1 -sv_forcepreload 1" // prioritize caching textures, shaders etc. may prevent stuttering
 // "-vulkan" // enable the Vulkan renderer in supported games, eg Portal 2 and DOTA 2
