@@ -2,13 +2,13 @@
 
 
 // current CSGO Linux:
-gamemoderun RADV_PERFTEST=aco AMD_DEBUG=nodcc,nodma %command% -high -nojoy -noaafonts -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -threads 5 -tickrate 128 +clientport 27027
+gamemoderun %command% -nojoy -novid -cl_forcepreload 1 -sv_forcepreload 1 -maxdownloadfilesizemb N -language bananagaming -tickrate 128 +clientport 27005
 
 // screen recording Linux
-AMD_DEBUG=nodcc,nodma RADV_PERFTEST=aco %command% -cl_forcepreload 1 -sv_forcepreload 1 -threads 3 -high -nojoy -novid -language bananagaming -tickrate 64 +clientport 27027
+-cl_forcepreload 1 -sv_forcepreload 1 -high -nojoy -novid -language bananagaming -tickrate 64 +clientport 27005
 
 // Windows:
--high -nojoy -nofxaa -noaafonts -novid -language bananagaming -threads 5 -tickrate 128 +clientport 27027
+-high -nojoy -nofxaa -noaafonts -novid -language bananagaming -tickrate 128 +clientport 27027
 
 
 // NOTE: the %command% environment options apply to the launch string and may prevent launch with some hardware eg nvidia GPUs
@@ -20,26 +20,32 @@ AMD_DEBUG=nodcc,nodma RADV_PERFTEST=aco %command% -cl_forcepreload 1 -sv_forcepr
 // https://support.steampowered.com/kb_article.php?ref=6370-QPHJ-3567   -r_emulate_gl
 
 
+// "-maxdownloadfilesizemb N" // maximum in-game downloaded file size that will not be rejected.
+// "-nojoy" // disables joypad detection. can prevent performance issues and even crashing on some systems
+//
 // "AMD_DEBUG=nodcc,nodma,zerovram %command%" // may prevent random artifacting on some GPUs, can hurt or help performance
 // "-language bananagaming" // enables that text color mod if installed
 // "gamemoderun %command%" // invoke Feral's gamemode daemon. I use it to set niceness etc.
 //                         // enabling performance CPU governer is very beneficial, I use corectrl for that + GPU control
 //
-// "LP_NUM_THREADS=5 %command%" // LLVMPipe threads. default=CPU core count, probably not relavent for CSGO
 //
-// mesa_no_error=true %command% // disables GL error handling, allows fancy gloves to render correctly but may cause crashing on some maps eg overpass
-// "strangle 250 %command%" // external FPS-limiter for Linux (libstrangle) I tested briefly, this one isn't capped but best to use the in-game limiter
-//
-// __GL_FSAA_MODE=0 %command%" %command%" // nvidia gl option 
+// "__GL_FSAA_MODE=0" %command%" %command%" // nvidia gl option 
 // "__GL_THREADED_OPTIMIZATIONS=1 %command%" // nvidia gl option, not needed, included in the csgo.sh file
-// "MESA_GL_VERSION_OVERRIDE=4.6 MESA_GLSL_VERSION_OVERRIDE=460" %command%" // enable higher GL version, not needed for csgo
 //
-// R600_DEBUG=nodcc,nodma,zerovram // old r600 driver option, replaced with AMD_DEBUG
+// "R600_DEBUG=nodcc,nodma,zerovram" // old r600 driver option, replaced with AMD_DEBUG
 // "GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 %command%" // old DRI-2 options
+// "strangle 250 %command%" // external FPS-limiter for Linux (libstrangle) I tested briefly, this one isn't capped but best to use the in-game limiter
 // 
-// -nojoy // disables joypad detection. can prevent performance issues and even crashing on some systems
-//  -r_emulate_gl // force openGL on windows?
+// "-r_emulate_gl" // force openGL on windows?
 //
+//
+//
+// WARNING: the below options might trigger a possible bug with Trust Factor. these options can be set via ~/.drirc file instead
+//
+// "radeonsi_clamp_div_by_zero=true %command%" // (clamp divide-by-zero to NaN) workaround for a bug in Dangerzone, default for mesa 20.3.3+
+// "mesa_glthread=true" enable multithread optimizations. good perf boost, default behaviour for mesa 21
+// "mesa_no_error=true" %command% // disables GL error handling. allows fancy gloves to render correctly, may cause crashing on some maps eg overpass
+// "MESA_GL_VERSION_OVERRIDE=4.6 MESA_GLSL_VERSION_OVERRIDE=460" %command%" // enable higher GL version, not needed for csgo
 //
 // Linux-focused optimisation guide:
 //
