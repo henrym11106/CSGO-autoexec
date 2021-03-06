@@ -22,16 +22,17 @@ gamemoderun %command% -novid -nojoy +exec hl1exec.cfg
 // between and including 27005 and 27032, excluding 27020 and any number in use on another local machine (27005 is default)
 // https://support.steampowered.com/kb_article.php?ref=6370-QPHJ-3567
 
-// "%command%" options apply to the launch string and can prevent launch in some scenarios. separate with spaces before one "%command%"
+// "%command%" options can prevent launch in some scenarios. separate with spaces before one "%command%" at the start of the line
 // some options are likely to be reduntant as the Linux drivers are constantly in development
 
+// "-tickrate 128" // server updates per second. effects many things, every activity has it's own reasons for different tick rates
 // "-maxdownloadfilesizemb N" // maximum in-game downloaded file size that will not be rejected. "N" to disable cap
 // "-nojoy" // disables joypad detection. can prevent performance issues and even crashing on some systems
 // "-cl_forcepreload 1 -sv_forcepreload 1" // prioritize caching textures, shaders etc. may prevent stuttering
 // "-vulkan" // enable the Vulkan renderer in supported games, eg Portal 2 and DOTA 2
 //
 // "RADV_PERFTEST=aco %command%" enable the Valve-supported ACO compiler for Vulkan. might be default behaviour now
-// "AMD_DEBUG=nodcc,nodma %command%" // may prevent artifacts on some GPUs, might be better off set globally
+// "AMD_DEBUG=nodcc,nodma %command%" // may prevent artifacts on some GPUs, can set globally by "export AMD_DEBUG=nodcc,nodma" bash file
 // "-language bananagaming" // enables that text color mod if installed
 // "gamemoderun %command%" // invoke Feral's gamemode daemon. I use it to set niceness etc.
 //                         // enabling performance CPU governer is very beneficial, I use corectrl for that + GPU control
