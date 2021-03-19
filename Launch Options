@@ -2,7 +2,7 @@
 
 
 // CSGO Linux:
-gamemoderun %command% -nojoy -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -maxdownloadfilesizemb 1024 -language bananagaming -tickrate 128 +clientport 27005
+gamemoderun %command% -nojoy -novid -cl_forcepreload 1 -sv_forcepreload 1 -maxdownloadfilesizemb 1024 -language bananagaming -tickrate 128 +clientport 27005
 
 // CS:GO Windows:
 -nojoy -nofxaa -novid -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -maxdownloadfilesizemb 1024 -tickrate 128 +clientport 27005
@@ -31,7 +31,7 @@ gamemoderun %command% -novid -nojoy +exec hl1exec.cfg
 // "-cl_forcepreload 1 -sv_forcepreload 1" // prioritize caching textures, shaders etc. may prevent stuttering
 // "-vulkan" // enable the Vulkan renderer in supported games, eg Portal 2 and DOTA 2
 //
-// "AMD_DEBUG=nodcc,nodma %command%" // prevent artifacts on some GPUs, can set globally eg "export AMD_DEBUG=nodcc,nodma" startup bash file
+// "AMD_DEBUG=nodcc,nodma %command%" // may prevent artifacts on some GPUs, can set globally. might be default behaviour now
 // "RADV_PERFTEST=aco %command%" enable the Valve-supported ACO compiler for Vulkan. might be default behaviour now
 // "-language bananagaming" // enables that text color mod/language setting if present
 // "gamemoderun %command%" // invoke Feral's gamemode daemon. I use it to set niceness etc.
