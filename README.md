@@ -1,6 +1,6 @@
 # CSGO autoexec
 
-"autoexec.cfg" contains my current crosshair, my custom binds for DuckJump, movement, grenade practice, sound, radar and netgraph, binds for buying, getting and using weapons & equipment, binds and settings for KZ, surf & bhop, etc.
+"autoexec.cfg" is my current CS:GO config. it includes crosshair, my custom binds for DuckJump, movement, grenade practice, sound, radar and netgraph, binds for buying, getting and using weapons & equipment, binds and settings for KZ, surf & bhop, etc.
 
 this file changes a quite a few settings including volume levels so read each part through before using.
 settings defined within should be set in the file as they apply on launch, overriding the in-game settings.
