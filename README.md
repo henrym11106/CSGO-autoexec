@@ -1,6 +1,4 @@
 # CSGO autoexec
-my config and custom action binds for Counter-Strike: Global Offensive.
-
 
 "autoexec.cfg" contains my current crosshair, my custom binds for DuckJump, movement, grenade practice, sound, radar and netgraph, binds for buying, getting and using weapons & equipment, binds and settings for KZ, surf & bhop, etc.
 
