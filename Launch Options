@@ -2,7 +2,7 @@
 
 
 // CSGO Linux:
-gamemoderun %command% -nojoy -novid -cl_forcepreload 1 -sv_forcepreload 1 -maxdownloadfilesizemb 1024 -language bananagaming -tickrate 128 +clientport 27005
+xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 1024x768 --rate 144 --pos 0x0 --set TearFree off; gamemoderun %command% -vulkan -tickrate 72 -nofxaa -language bananagaming -maxdownloadfilesizemb 1024 -novid +clientport 27027; xrandr --output DisplayPort-0 --primary --mode 1920x1080 --transform none --rate 144 --pos 0x0 --set TearFree off
 
 // CS:GO Windows:
 -nojoy -nofxaa -novid -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -maxdownloadfilesizemb 1024 -tickrate 128 +clientport 27005
@@ -24,11 +24,12 @@ gamemoderun %command% -novid -nojoy +exec hl1exec.cfg
 
 // "%command%" options can prevent launch in some scenarios. separate with spaces before one "%command%" at the start of the line
 // some options are likely to be reduntant as the Linux drivers are constantly in development
+// all the xrandr stuff is to change res and upscale to native fullscreen on xorg. CSGO deosn't support changing res with -vulkan as of now. 
 
-// "-tickrate 128" // server updates per second. effects many things, every activity has it's own reasons for different tick rates
+// "-tickrate [64 72 85 100 128]" // server updates per second. effects many things, every activity has it's own reasons for different tick rates
 // "-maxdownloadfilesizemb 1024" // maximum in-game downloaded file size that will not be rejected
 // "-nojoy" // disables joypad detection. can prevent performance issues and even crashing on some systems
-// "-cl_forcepreload 1 -sv_forcepreload 1" // prioritize caching textures, shaders etc. may prevent stuttering
+// "-cl_forcepreload 1 -sv_forcepreload 1" // prioritize caching textures, shaders etc. may prevent stuttering, possibly obsolete
 // "-vulkan" // enable the Vulkan renderer in supported games, eg Portal 2 and DOTA 2
 //
 // "AMD_DEBUG=nodcc,nodma %command%" // may prevent artifacts on some GPUs, can set globally. might be default behaviour now
