@@ -15,7 +15,7 @@ LD_PRELOAD="/usr/lib32/libSDL2-2.0.so.0"; gamemoderun %command% -w 1152 -h 864 -
 LD_PRELOAD="/usr/lib32/libSDL2-2.0.so.0"; gamemoderun %command% -cl_forcepreload 1 -sv_forcepreload 1 -novid -nojoy +exec hl2exec.cfg
 
 // Portal 2 Linux
-gamemoderun RADV_PERFTEST=aco %command% -cl_forcepreload 1 -sv_forcepreload 1 -novid -nojoy -vulkan +exec p2exec.cfg
+gamemoderun %command% -cl_forcepreload 1 -sv_forcepreload 1 -novid -nojoy -vulkan +exec p2exec.cfg
 
 // HL1, goldsrc games
 -novid -nojoy +exec hl1exec.cfg
@@ -35,6 +35,8 @@ gamemoderun RADV_PERFTEST=aco %command% -cl_forcepreload 1 -sv_forcepreload 1 -n
 // "-cl_forcepreload 1 -sv_forcepreload 1" // prioritize caching textures, shaders etc. may prevent stuttering, possibly obsolete
 // "-vulkan" // enable the Vulkan renderer in supported games, eg Portal 2 and DOTA 2
 //
+// LD_PRELOAD="/usr/lib32/libSDL2-2.0.so.0" %command% // will fix input issues in some Source engine games if that lib32 file is present
+//
 // "AMD_DEBUG=nodcc,nodma %command%" // may prevent artifacts on some GPUs, can set globally. might be default behaviour now
 // "RADV_PERFTEST=aco %command%" enable the Valve-supported ACO compiler for Vulkan. might be default behaviour now
 // "-language bananagaming" // enables that text color mod/language setting if present
@@ -50,14 +52,6 @@ gamemoderun RADV_PERFTEST=aco %command% -cl_forcepreload 1 -sv_forcepreload 1 -n
 // "strangle 250 %command%" // external FPS-limiter for Linux (libstrangle) I tested briefly, this one isn't capped but best to use the in-game limiter
 // 
 // "-r_emulate_gl" // force openGL on windows???
-
-
-
-// WARNING: the following commands may trigger a possible serious issue with Trust Factor. these options can be set via ~/.drirc file instead
-//
-// "radeonsi_clamp_div_by_zero=true %command%" // (clamp divide-by-zero to NaN) workaround for a bug in Dangerzone, default for mesa 20.3.3+
-// "mesa_glthread=true" enable multithread optimizations. good perf boost, default behaviour for mesa 21
-// "mesa_no_error=true" %command% // disables GL error handling. allows fancy gloves to render correctly, may cause crashing on some maps eg overpass
 // "MESA_GL_VERSION_OVERRIDE=4.6 MESA_GLSL_VERSION_OVERRIDE=460" %command%" // enable higher GL version, not needed for csgo
 
 
