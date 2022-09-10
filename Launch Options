@@ -2,20 +2,23 @@
 
 
 // CSGO Linux:
-xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 1024x768 --rate 144 --pos 0x0 --set TearFree off; gamemoderun %command% -vulkan -tickrate 72 -nofxaa -language bananagaming -maxdownloadfilesizemb 1024 -novid +clientport 27027; xrandr --output DisplayPort-0 --primary --mode 1920x1080 --transform none --rate 144 --pos 0x0 --set TearFree off
+xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 1152x864 --filter bilinear --rate 144 --pos 0x0 --set TearFree off; gamemoderun %command% -language bananagaming -maxdownloadfilesizemb 999 -novid -vulkan -tickrate 72 +clientport 27027
 
 // CS:GO Windows:
 -nojoy -nofxaa -novid -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -maxdownloadfilesizemb 1024 -tickrate 128 +clientport 27005
 
 
+// CS:S Linux
+LD_PRELOAD="/usr/lib32/libSDL2-2.0.so.0"; gamemoderun %command% -w 1152 -h 864 -novid -nojoy +exec cssexec.cfg +clientport 27027
+
 // HL2 Linux, old Source games
-gamemoderun %command% -cl_forcepreload 1 -sv_forcepreload 1 -novid -nojoy +exec hl2exec.cfg
+LD_PRELOAD="/usr/lib32/libSDL2-2.0.so.0"; gamemoderun %command% -cl_forcepreload 1 -sv_forcepreload 1 -novid -nojoy +exec hl2exec.cfg
 
 // Portal 2 Linux
 gamemoderun RADV_PERFTEST=aco %command% -cl_forcepreload 1 -sv_forcepreload 1 -novid -nojoy -vulkan +exec p2exec.cfg
 
 // HL1, goldsrc games
-gamemoderun %command% -novid -nojoy +exec hl1exec.cfg
+-novid -nojoy +exec hl1exec.cfg
 
 
 // if more than one computer is running online steam games on your local network, set "+clientport 27005" to anything
