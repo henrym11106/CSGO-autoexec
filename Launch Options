@@ -1,24 +1,31 @@
 // LAUNCH OPTIONS 
 
 
-// CSGO Linux:
-xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 1152x864 --filter bilinear --rate 144 --pos 0x0 --set TearFree off; gamemoderun %command% -language bananagaming -maxdownloadfilesizemb 999 -novid -vulkan -tickrate 72 +clientport 27027
+// CSGO Linux (Vulkan):
+xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 1152x864 --filter bilinear --rate 144 --pos 0x0 --set TearFree off; gamemoderun %command% -language colormod -maxdownloadfilesizemb 999 -novid -nojoy -vulkan -tickrate 85 +clientport 27027
 
 // CS:GO Windows:
 -nojoy -nofxaa -novid -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -maxdownloadfilesizemb 1024 -tickrate 128 +clientport 27005
 
 
 // CS:S Linux
-LD_PRELOAD="/usr/lib32/libSDL2-2.0.so.0"; gamemoderun %command% -w 1152 -h 864 -novid -nojoy +exec cssexec.cfg +clientport 27027
+LD_PRELOAD="/usr/lib32/libSDL2-2.0.so.0 $HOME/.local/share/Steam/ubuntu12_32/gameoverlayrenderer.so"; gamemoderun %command% -w 1152 -h 864 -novid -nojoy +exec cssexec.cfg +exec surftcss.cfg +clientport 27027
 
 // HL2 Linux, old Source games
-LD_PRELOAD="/usr/lib32/libSDL2-2.0.so.0"; gamemoderun %command% -cl_forcepreload 1 -sv_forcepreload 1 -novid -nojoy +exec hl2exec.cfg
+LD_PRELOAD="/usr/lib32/libSDL2-2.0.so.0 $HOME/.local/share/Steam/ubuntu12_32/gameoverlayrenderer.so"; gamemoderun %command% -cl_forcepreload 1 -sv_forcepreload 1 -novid -nojoy +exec hl2exec.cfg
 
-// Portal 2 Linux
-gamemoderun %command% -cl_forcepreload 1 -sv_forcepreload 1 -novid -nojoy -vulkan +exec p2exec.cfg
+// TF2 Linux
+LD_PRELOAD="/usr/lib32/libSDL2-2.0.so.0 $HOME/.local/share/Steam/ubuntu12_32/gameoverlayrenderer.so"; gamemoderun %command% -cl_forcepreload 1 -sv_forcepreload 1 -novid -nojoy +console +exec tf2exec.cfg +clientport 27027
+
+// Portal 2 Linux (Vulkan)
+xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 1152x864 --filter bilinear --rate 144 --pos 0x0 --set TearFree off; gamemoderun %command% -cl_forcepreload 1 -sv_forcepreload 1 -novid -nojoy -vulkan +exec p2exec.cfg
+
 
 // HL1, goldsrc games
--novid -nojoy +exec hl1exec.cfg
+xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 1152x864 --filter bilinear --rate 144 --pos 0x0 --set TearFree off; LD_PRELOAD="/usr/lib32/libSDL2-2.0.so.0 $HOME/.local/share/Steam/ubuntu12_32/gameoverlayrenderer.so" %command% -nojoy -novid +exec hl1exec.cfg
+
+// CS 1.6 Linux
+xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 1152x864 --filter bilinear --rate 144 --pos 0x0 --set TearFree off; LD_PRELOAD="/usr/lib32/libSDL2-2.0.so.0 $HOME/.local/share/Steam/ubuntu12_32/gameoverlayrenderer.so" %command% -nojoy -novid +exec csexec.cfg +clientport 27027
 
 
 // if more than one computer is running online steam games on your local network, set "+clientport 27005" to anything
@@ -29,19 +36,27 @@ gamemoderun %command% -cl_forcepreload 1 -sv_forcepreload 1 -novid -nojoy -vulka
 // some options are likely to be reduntant as the Linux drivers are constantly in development
 // all the xrandr stuff is to change res and upscale to native fullscreen on xorg. CSGO deosn't support changing res with -vulkan as of now. 
 
+
 // "-tickrate [64 72 85 100 128]" // server updates per second. effects many things, every activity has it's own reasons for different tick rates
 // "-maxdownloadfilesizemb 1024" // maximum in-game downloaded file size that will not be rejected
 // "-nojoy" // disables joypad detection. can prevent performance issues and even crashing on some systems
 // "-cl_forcepreload 1 -sv_forcepreload 1" // prioritize caching textures, shaders etc. may prevent stuttering, possibly obsolete
 // "-vulkan" // enable the Vulkan renderer in supported games, eg Portal 2 and DOTA 2
 //
-// LD_PRELOAD="/usr/lib32/libSDL2-2.0.so.0" %command% // will fix input issues in some Source engine games if that lib32 file is present
+//
+//
+// LD_PRELOAD="/usr/lib32/libSDL2-2.0.so.0" %command%  // will fix input issues in some games if lib32-sdl2 is installed
+// LD_PRELOAD="$HOME/.local/share/Steam/ubuntu12_32/gameoverlayrenderer.so" %command%  //  load steam overlay in 32-bit games
+// LD_PRELOAD="$HOME/.local/share/Steam/ubuntu12_64/gameoverlayrenderer.so" %command%  //  load steam overlay in 64-bit games
+// LD_PRELOAD="/usr/lib32/libSDL2-2.0.so.0 $HOME/.local/share/Steam/ubuntu12_32/gameoverlayrenderer.so" %command% // sdl2 fix + enable steam overlay (32-bit)
+// LD_PRELOAD="/usr/lib/libSDL2-2.0.so.0 $HOME/.local/share/Steam/ubuntu12_64/gameoverlayrenderer.so" %command% // sdl2 fix + enable steam overlay (64-bit)
+//
 //
 // "AMD_DEBUG=nodcc,nodma %command%" // may prevent artifacts on some GPUs, can set globally. might be default behaviour now
 // "RADV_PERFTEST=aco %command%" enable the Valve-supported ACO compiler for Vulkan. might be default behaviour now
 // "-language bananagaming" // enables that text color mod/language setting if present
 // "gamemoderun %command%" // invoke Feral's gamemode daemon. I use it to set niceness etc.
-//                         // the performance CPU governer is very beneficial, I use "corectrl" for that + GPU control
+//                         // the performance CPU governer may be beneficial. I use "corectrl" for that + GPU control
 //
 //
 // "__GL_FSAA_MODE=0" %command%" %command%" // nvidia gl option 
@@ -51,8 +66,9 @@ gamemoderun %command% -cl_forcepreload 1 -sv_forcepreload 1 -novid -nojoy -vulka
 // "GLX_EXT_swap_control_tear=0 tearfree=0 EnablePageFlip=0 SwapBuffersWait=0 vblank_mode=0 %command%" // old DRI-2 options
 // "strangle 250 %command%" // external FPS-limiter for Linux (libstrangle) I tested briefly, this one isn't capped but best to use the in-game limiter
 // 
-// "-r_emulate_gl" // force openGL on windows???
 // "MESA_GL_VERSION_OVERRIDE=4.6 MESA_GLSL_VERSION_OVERRIDE=460" %command%" // enable higher GL version, not needed for csgo
+
+// "-r_emulate_gl" // force openGL on windows???
 
 
 // Linux-focused optimisation guide:
