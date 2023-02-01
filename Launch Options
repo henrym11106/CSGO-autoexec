@@ -1,15 +1,19 @@
 // LAUNCH OPTIONS 
 
 
-// CSGO Linux (Vulkan):
-xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 1152x864 --filter bilinear --rate 144 --pos 0x0 --set TearFree off; gamemoderun %command% -language colormod -maxdownloadfilesizemb 999 -novid -nojoy -vulkan -tickrate 85 +clientport 27027
+// CSGO Linux (Vulkan, X11):
+xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 1152x864 --rate 143.98 --pos 0x0 --set TearFree off --set "scaling mode" "Full"; gamemoderun LD_PRELOAD="" %command% -language colormod -maxdownloadfilesizemb 999 -novid -nojoy -vulkan -tickrate 128 +clientport 27027
 
 // CS:GO Windows:
--nojoy -nofxaa -novid -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -maxdownloadfilesizemb 1024 -tickrate 128 +clientport 27005
-
+-nojoy -novid -language colormod -maxdownloadfilesizemb 1024 -tickrate 128 +clientport 27027
 
 // CS:S Linux
 LD_PRELOAD="/usr/lib32/libSDL2-2.0.so.0 $HOME/.local/share/Steam/ubuntu12_32/gameoverlayrenderer.so"; gamemoderun %command% -w 1152 -h 864 -novid -nojoy +exec cssexec.cfg +exec surftcss.cfg +clientport 27027
+
+
+// Momentum Mod Linux (Steam/playtest, VK required, X11)
+xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 1152x864 --rate 143.98 --pos 0x0 --set TearFree off --set "scaling mode" "Full"; gamemoderun LD_PRELOAD="" %command% -novid -nojoy +clientport 27027 +exec momexec.cfg
+
 
 // HL2 Linux, old Source games
 LD_PRELOAD="/usr/lib32/libSDL2-2.0.so.0 $HOME/.local/share/Steam/ubuntu12_32/gameoverlayrenderer.so"; gamemoderun %command% -cl_forcepreload 1 -sv_forcepreload 1 -novid -nojoy +exec hl2exec.cfg
@@ -17,7 +21,7 @@ LD_PRELOAD="/usr/lib32/libSDL2-2.0.so.0 $HOME/.local/share/Steam/ubuntu12_32/gam
 // TF2 Linux
 LD_PRELOAD="/usr/lib32/libSDL2-2.0.so.0 $HOME/.local/share/Steam/ubuntu12_32/gameoverlayrenderer.so"; gamemoderun %command% -cl_forcepreload 1 -sv_forcepreload 1 -novid -nojoy +console +exec tf2exec.cfg +clientport 27027
 
-// Portal 2 Linux (Vulkan)
+// Portal 2 Linux (Vulkan, X11)
 xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 1152x864 --filter bilinear --rate 144 --pos 0x0 --set TearFree off; gamemoderun %command% -cl_forcepreload 1 -sv_forcepreload 1 -novid -nojoy -vulkan +exec p2exec.cfg
 
 
