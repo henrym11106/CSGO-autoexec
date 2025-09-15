@@ -1,5 +1,54 @@
 // LAUNCH OPTIONS 
+// kscreen-doctor commands automatically change resolution, refresh rate and ICC colour profile handling as specified upon launching and quitting the game (KDE desktop) 
+// the xrandr commands automatically change resolution and refresh rate as specified upon launching and quitting the game
 
+// CS2 KDE Wayland 2025-09-14 - in-game scaling works! deleting "(...)game/bin/linuxsteamrt64/libSDL3.so.0" fixes mouse input.
+kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.preferEfficiency; SDL_VIDEO_DRIVER=wayland %command% -w 1024 -h 768 +exec cs2exec.cfg +clientport 27027; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy
+
+// CS2 KDE (X?)Wayland 2025-09-05
+kscreen-doctor output.DP-1.mode.1024x768@144; %command% -novid -nojoy -w 1024 -h 768 +exec cs2exec.cfg; kscreen-doctor output.DP-1.mode.1920x1080@120 %command%
+
+// CS2 X11 2025-09-05
+xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 1024x768 --rate 143.98 --set TearFree off; %command% -novid -nojoy -w 1024 -h 768 +exec cs2exec.cfg +clientport 27027; xrandr --output DisplayPort-0 --mode 1920x1080 --transform none --rate 119.98 --set TearFree on
+
+
+
+// Momentum Mod KDE Wayland 2025-09-14
+kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.preferEfficiency; gamemoderun %command% -w 1024 -h 768 -novid -nojoy -mapping +clientport 27027 +exec momexec.cfg; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy
+
+// Momentum Mod X11
+xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 1024x768 --rate 143.98 --set TearFree off; gamemoderun %command% -w 1024 -h 768 -windowed -novid -nojoy -mapping +clientport 27027 +exec momexec.cfg
+
+
+
+// CS:S KDE Wayland 2025-09-14
+kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.preferEfficiency; gamemoderun %command% -novid -h 768 -w 1024 +clientport 27027 +exec cssexec.cfg; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy
+
+// CS:S X11
+xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 1152x864 --rate 143.98 --pos 0x0 --set TearFree off --set "scaling mode" "None"; gamemoderun LD_PRELOAD="" %command% -novid -h 864 -w 1152 +clientport 27027 +exec cssexec.cfg
+
+
+
+// TF2 KDE Wayland 2025-09-14
+kscreen-doctor output.DP-1.mode.1024x768@144 output.DP-1.colorPowerTradeoff.preferEfficiency; gamemoderun %command% -cl_forcepreload 1 -sv_forcepreload 1 -novid -nojoy +console -h 864 -w 1152 +exec tf2exec.cfg +clientport 27027; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy
+
+
+// GMOD Wayland 2025-09-14
+kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.preferEfficiency; LD_PRELOAD="/home/henry/.local/share/Steam/ubuntu12_64/gameoverlayrenderer.so" gamemoderun %command% -novid -nojoy +exec gmexec.cfg; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy
+
+
+// Counter-Strike Wayland 2025-09-14
+kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.preferEfficiency; LD_PRELOAD="/usr/lib32/libSDL2-2.0.so.0 $HOME/.local/share/Steam/ubuntu12_32/gameoverlayrenderer.so"; %command% -nojoy -novid +exec csexec.cfg +clientport 27027; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy
+
+
+// Half-Life Wayland 2025-09-14
+kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.preferEfficiency; LD_PRELOAD="$HOME/.local/share/Steam/ubuntu12_32/gameoverlayrenderer.so" %command% -nojoy -novid +exec hl1exec.cfg; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy
+
+
+
+
+
+OLD:
 
 // CSGO Linux (Vulkan, X11):
 xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 1152x864 --rate 143.98 --pos 0x0 --set TearFree off --set "scaling mode" "Full"; gamemoderun LD_PRELOAD="" %command% -language colormod -maxdownloadfilesizemb 999 -novid -nojoy -vulkan -tickrate 128 +clientport 27027
