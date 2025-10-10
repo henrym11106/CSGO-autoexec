@@ -2,15 +2,15 @@
 // kscreen-doctor commands automatically change resolution, refresh rate and ICC colour profile handling as specified upon launching and quitting the game (KDE desktop) 
 // the xrandr commands automatically change resolution and refresh rate as specified upon launching and quitting the game
 
-// CS2 KDE Wayland 2025-09-14 - in-game scaling works! deleting "(...)game/bin/linuxsteamrt64/libSDL3.so.0" fixes mouse input.
-kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.preferEfficiency; SDL_VIDEO_DRIVER=wayland %command% -w 1024 -h 768 +exec cs2exec.cfg +clientport 27027; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy
+//
+// CS2 Wayland 2025-09-23 - in-game scaling works! if raw mouse input if broken, delete "(...)game/bin/linuxsteamrt64/libSDL3.so.0"
+kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.preferEfficiency; SDL_VIDEO_DRIVER=wayland %command% -nojoy -w 1024 -h 768 +exec cs2exec.cfg +clientport 27027; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy
 
-// CS2 KDE (X?)Wayland 2025-09-05
-kscreen-doctor output.DP-1.mode.1024x768@144; %command% -novid -nojoy -w 1024 -h 768 +exec cs2exec.cfg; kscreen-doctor output.DP-1.mode.1920x1080@120 %command%
+// CS2 (X?)Wayland 2025-09-23
+kscreen-doctor output.DP-1.mode.1024x768@144; %command% -nojoy -w 1024 -h 768 +exec cs2exec.cfg; kscreen-doctor output.DP-1.mode.1920x1080@120 %command%
 
-// CS2 X11 2025-09-05
-xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 1024x768 --rate 143.98 --set TearFree off; %command% -novid -nojoy -w 1024 -h 768 +exec cs2exec.cfg +clientport 27027; xrandr --output DisplayPort-0 --mode 1920x1080 --transform none --rate 119.98 --set TearFree on
-
+// CS2 X11 2025-10-04
+xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 1024x768 --rate 144 --set TearFree off; %command% -nojoy -w 1024 -h 768 +exec cs2exec.cfg +clientport 27027; xrandr --output DisplayPort-0 --transform none --rate 119.98 --set TearFree on
 
 
 // Momentum Mod KDE Wayland 2025-09-14
@@ -30,14 +30,14 @@ xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 1152x864 --rate 143.
 
 
 // TF2 KDE Wayland 2025-09-14
-kscreen-doctor output.DP-1.mode.1024x768@144 output.DP-1.colorPowerTradeoff.preferEfficiency; gamemoderun %command% -cl_forcepreload 1 -sv_forcepreload 1 -novid -nojoy +console -h 864 -w 1152 +exec tf2exec.cfg +clientport 27027; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy
+kscreen-doctor output.DP-1.mode.1024x768@144 output.DP-1.colorPowerTradeoff.preferEfficiency; gamemoderun %command% -cl_forcepreload 1 -sv_forcepreload 1 -novid -nojoy +console -h 768 -w 1024 +exec tf2exec.cfg +clientport 27027; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy
 
 
 // GMOD Wayland 2025-09-14
 kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.preferEfficiency; LD_PRELOAD="/home/henry/.local/share/Steam/ubuntu12_64/gameoverlayrenderer.so" gamemoderun %command% -novid -nojoy +exec gmexec.cfg; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy
 
 
-// Counter-Strike Wayland 2025-09-14
+// Counter Strike Wayland 2025-09-14
 kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.preferEfficiency; LD_PRELOAD="/usr/lib32/libSDL2-2.0.so.0 $HOME/.local/share/Steam/ubuntu12_32/gameoverlayrenderer.so"; %command% -nojoy -novid +exec csexec.cfg +clientport 27027; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy
 
 
@@ -45,48 +45,78 @@ kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.pre
 kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.preferEfficiency; LD_PRELOAD="$HOME/.local/share/Steam/ubuntu12_32/gameoverlayrenderer.so" %command% -nojoy -novid +exec hl1exec.cfg; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy
 
 
+--------------
+
+MESA_LOADER_DRIVER_OVERRIDE=zink // alt GL driver
+
+LD_PRELOAD="$HOME/.local/share/Steam/ubuntu12_64/gameoverlayrenderer.so"
+LD_PRELOAD="$HOME/.local/share/Steam/ubuntu12_64/steamoverlayvulkanlayer.so"
+LD_PRELOAD="$HOME/.local/share/Steam/ubuntu12_64/steamoverlayvulkanlayer.so $HOME/.local/share/Steam/ubuntu12_64/gameoverlayrenderer.so"
+
+$HOME/.local/share/Steam/ubuntu12_32/gameoverlayrenderer.so
+$HOME/.local/share/Steam/ubuntu12_64/steamoverlayvulkanlayer.so
+/home/henry/.local/share/Steam/ubuntu12_64/gameoverlayrenderer.so
+/home/henry/.local/share/Steam/ubuntu12_64/steamoverlayvulkanlayer.so
+
+kscreen-doctor output.DP-1.mode.1024x768@144 output.DP-1.colorPowerTradeoff.preferEfficiency
+kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.preferEfficiency
+kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy
+
+--------------
+
+// old CSGO/2
+// CS2 Wayland 2025-09-10 - in-game scaling works! deleting (...)game/bin/linuxsteamrt64/libSDL3.so.0 fixes mouse input.
+kscreen-doctor output.DP-1.mode.1920x1080@144; SDL_VIDEO_DRIVER=wayland %command% -w 1024 -h 768 +exec cs2exec.cfg +clientport 27027; kscreen-doctor output.DP-1.mode.1920x1080@120
+
+// CS2 Wayland 2025-09-05 optional: SDL_VIDEO_DRIVER=wayland LD_PRELOAD="/usr/lib/libSDL3.so.0" << SDL fixes mouse sens, may or may not be VAC safe
+// deleting /ssd/SteamLibrary/steamapps/common/Counter-Strike Global Offensive/game/bin/linuxsteamrt64/libSDL3.so.0 also works
+kscreen-doctor output.DP-1.mode.1024x768@144; SDL_VIDEO_DRIVER=wayland %command% -w 1024 -h 768 +exec cs2exec.cfg; kscreen-doctor output.DP-1.mode.1920x1080@120 %command%
+
+gamescope -w 1024 -h 768 -W 1920 -H 1080 -S stretch; gamemoderun %command% -novid -nojoy +exec cs2exec.cfg (no good on X11, small perf hit wayland)
+
+xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 1024x768 --rate 143.98 --pos 0x0 --set TearFree off; %command% -language colormod -maxdownloadfilesizemb 999 -novid -nojoy -vulkan -tickrate 128 +clientport 27027
 
 
+xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 1024x768 --rate 143.98 --pos 0x0 --set TearFree off; %command% -novid -nojoy +exec cs2exec.cfg
+xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 1024x768 --rate 143.98 --pos 0x0 --set TearFree off; gamemoderun %command% -novid -nojoy +exec cs2exec.cfg
 
-OLD:
+--
 
-// CSGO Linux (Vulkan, X11):
-xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 1152x864 --rate 143.98 --pos 0x0 --set TearFree off --set "scaling mode" "Full"; gamemoderun LD_PRELOAD="" %command% -language colormod -maxdownloadfilesizemb 999 -novid -nojoy -vulkan -tickrate 128 +clientport 27027
+gamemoderun RADV_PERFTEST=aco AMD_DEBUG=nodcc,nodma %command% -high -nojoy -noaafonts -novid -nofxaa -cl_forcepreload 1 -sv_forcepreload 1 -language bananagaming -trusted_launch 1 -threads 5 -tickrate 128 +clientport 27027
 
-// CS:GO Windows:
--nojoy -novid -language colormod -maxdownloadfilesizemb 1024 -tickrate 128 +clientport 27027
+radeonsi_clamp_div_by_zero=true mesa_glthread=true mesa_no_error=true
 
-// CS:S Linux
-LD_PRELOAD="/usr/lib32/libSDL2-2.0.so.0 $HOME/.local/share/Steam/ubuntu12_32/gameoverlayrenderer.so"; gamemoderun %command% -w 1152 -h 864 -novid -nojoy +exec cssexec.cfg +exec surftcss.cfg +clientport 27027
-
-
-// Momentum Mod Linux (Steam/playtest, VK required, X11)
-xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 1152x864 --rate 143.98 --pos 0x0 --set TearFree off --set "scaling mode" "Full"; gamemoderun LD_PRELOAD="" %command% -novid -nojoy +clientport 27027 +exec momexec.cfg
+gamemoderun; gamescope -h 768 -w 1024 -U --fsr-sharpness 11 -f -- %command% -nofxaa -language bananagaming -maxdownloadfilesizemb 1024 -novid -vulkan -tickrate 128 +clientport 27027; (no steam overlay, fails to launch)
 
 
-// HL2 Linux, old Source games
-LD_PRELOAD="/usr/lib32/libSDL2-2.0.so.0 $HOME/.local/share/Steam/ubuntu12_32/gameoverlayrenderer.so"; gamemoderun %command% -cl_forcepreload 1 -sv_forcepreload 1 -novid -nojoy +exec hl2exec.cfg
+// old CSS
+xrandr --output DisplayPort-0 --mode 1920x1080 --transform none --rate 143.98 --pos 0x0 --set TearFree off; gamemoderun %command% -novid -nojoy +exec cssexec.cfg; xrandr --output DisplayPort-0 --set TearFree on --rate 120
 
-// TF2 Linux
-LD_PRELOAD="/usr/lib32/libSDL2-2.0.so.0 $HOME/.local/share/Steam/ubuntu12_32/gameoverlayrenderer.so"; gamemoderun %command% -cl_forcepreload 1 -sv_forcepreload 1 -novid -nojoy +console +exec tf2exec.cfg +clientport 27027
-
-// Portal 2 Linux (Vulkan, X11)
-xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 1152x864 --filter bilinear --rate 144 --pos 0x0 --set TearFree off; gamemoderun %command% -cl_forcepreload 1 -sv_forcepreload 1 -novid -nojoy -vulkan +exec p2exec.cfg
+// old CS
+xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 1024x768 --rate 144 --pos 0x0 --set TearFree off; LD_PRELOAD="/usr/lib32/libSDL2-2.0.so.0 $HOME/.local/share/Steam/ubuntu12_32/gameoverlayrenderer.so"; %command% -nojoy -novid +exec csexec.cfg +clientport 27027; xrandr --output DisplayPort-0 --set TearFree on
 
 
-// HL1, goldsrc games
-xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 1152x864 --filter bilinear --rate 144 --pos 0x0 --set TearFree off; LD_PRELOAD="/usr/lib32/libSDL2-2.0.so.0 $HOME/.local/share/Steam/ubuntu12_32/gameoverlayrenderer.so" %command% -nojoy -novid +exec hl1exec.cfg
+// screen recording
 
-// CS 1.6 Linux
-xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 1152x864 --filter bilinear --rate 144 --pos 0x0 --set TearFree off; LD_PRELOAD="/usr/lib32/libSDL2-2.0.so.0 $HOME/.local/share/Steam/ubuntu12_32/gameoverlayrenderer.so" %command% -nojoy -novid +exec csexec.cfg +clientport 27027
+AMD_DEBUG=nodcc,nodma RADV_PERFTEST=aco LP_NUM_THREADS=3 %command% -cl_forcepreload 1 -sv_forcepreload 1 -threads 3 -high -nojoy -novid -language bananagaming -tickrate 64 +clientport 27027
 
+
+------------------
+
+gamemoderun; gamescope -w 1024 -h 768 -W 1920 -H 1080 -S stretch -F fsr --sharpness 13 -f --force-grab-cursor -- %command% -fullscreen +exec cs2exec.cfg
+gamemoderun; gamescope -w 1024 -h 768 -W 1920 -H 1080 -S stretch -F nis --sharpness 13 -f --force-grab-cursor -- %command% -fullscreen +exec cs2exec.cfg (1-5% perf hit X11)
+
+----------------
 
 // if more than one computer is running online steam games on your local network, set "+clientport 27005" to anything
 // between and including 27005 and 27032, excluding 27020 and any number in use on another local machine (27005 is default)
 // https://support.steampowered.com/kb_article.php?ref=6370-QPHJ-3567
 
 // "%command%" options can prevent launch in some scenarios. separate with spaces before one "%command%" at the start of the line
-// some options are likely to be reduntant as the Linux drivers are constantly in development
+// formatting:
+// system commands; app env commands %command% -game -flags +commands; system commands
+//
+// some options may be reduntant as the Linux drivers are constantly in development
 // all the xrandr stuff is to change res and upscale to native fullscreen on xorg. CSGO deosn't support changing res with -vulkan as of now. 
 
 
@@ -109,7 +139,7 @@ xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 1152x864 --filter bi
 // "RADV_PERFTEST=aco %command%" enable the Valve-supported ACO compiler for Vulkan. might be default behaviour now
 // "-language bananagaming" // enables that text color mod/language setting if present
 // "gamemoderun %command%" // invoke Feral's gamemode daemon. I use it to set niceness etc.
-//                         // the performance CPU governer may be beneficial. I use "corectrl" for that + GPU control
+//                        // the performance CPU governer may be beneficial. I use "corectrl" for that + GPU control
 //
 //
 // "__GL_FSAA_MODE=0" %command%" %command%" // nvidia gl option 
