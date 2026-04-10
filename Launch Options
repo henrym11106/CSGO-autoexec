@@ -26,7 +26,7 @@ kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.pre
 
 
 // Half-Life Wayland 2026-04-10
-kscreen-doctor output.DP-1.mode.1024x768@144 output.DP-1.colorPowerTradeoff.preferEfficiency output.DP-1.iccprofile.""; SDL_VIDEODRIVER=x11 SDL_AUDIODRIVER=pipewire ionice -c 2 -n 2 chrt -f 42 taskset -c 4-5 %command% -nojoy -novid -w 1024 -h 768 -fullscreen +exec hl1exec.cfg; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy output.DP-1.iccprofile.$HOME/icc_current.icc
+kscreen-doctor output.DP-1.mode.1024x768@144 output.DP-1.colorPowerTradeoff.preferEfficiency output.DP-1.iccprofile.""; SDL_VIDEODRIVER=x11 SDL_AUDIODRIVER=pipewire taskset -c 4-5 chrt -f 42 ionice -c 2 -n 2 strangle 144 %command% -nojoy -novid -w 1024 -h 768 -fullscreen +exec hl1exec.cfg; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy output.DP-1.iccprofile.$HOME/icc_current.icc
 
 
 
