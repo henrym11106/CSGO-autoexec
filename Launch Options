@@ -5,7 +5,7 @@ kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.pre
 xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 960x720 --rate 143.98 --set TearFree off; taskset -c 1-5 chrt -f 42 ionice -c 2 -n 2 strangle 144.32 --vulkan-only %command% -novid -nojoy -w 1024 -h 768 -vulkan +exec cs2exec.cfg; xrandr --output DisplayPort-0 --mode 1920x1080 --transform none --rate 119.98 --set TearFree on
 
 
-// CS:GO KDE XWayland 2026-04-10
+// CS:GO KDE Xwayland 2026-04-10
 kscreen-doctor output.DP-1.mode.1024x768@144 output.DP-1.colorPowerTradeoff.preferEfficiency output.DP-1.iccprofile.""; SDL_VIDEODRIVER=x11 SDL_AUDIODRIVER=pipewire taskset -c 1-5 chrt -f 42 ionice -c 2 -n 2 strangle 287.6 --vulkan-only %command% -threads 5 -steam -vulkan -nojoy -novid -w 1024 -h 768 -fullscreen; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy output.DP-1.iccprofile.$HOME/icc_current.icc
 
 
@@ -13,7 +13,7 @@ kscreen-doctor output.DP-1.mode.1024x768@144 output.DP-1.colorPowerTradeoff.pref
 kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.preferEfficiency output.DP-1.iccprofile.""; SDL_VIDEODRIVER=wayland SDL_AUDIODRIVER=pipewire taskset -c 3-5 chrt -f 42 ionice -c 2 -n 2 strangle 432.1 %command% -threads 3 -novid -h 768 -w 1024 +clientport 27027 +exec cssexec.cfg; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy output.DP-1.iccprofile.$HOME/icc_current.icc
 
 
-// HL2 KDE Wayland 2026-04-10
+// HL2 KDE Xwayland 2026-04-10
 kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.preferEfficiency output.DP-1.iccprofile.""; SDL_VIDEODRIVER=x11 SDL_AUDIODRIVER=pipewire taskset -c 3-5 chrt -f 42 ionice -c 2 -n 2 strangle 287.6 %command% -threads 3 -novid -h 864 -w 1152 +exec hl2exec.cfg; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy output.DP-1.iccprofile.$HOME/icc_current.icc
 
 
@@ -21,11 +21,11 @@ kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.pre
 kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.preferEfficiency output.DP-1.iccprofile.""; SDL_VIDEODRIVER=wayland SDL_AUDIODRIVER=pipewire taskset -c 3-5 chrt -f 42 ionice -c 2 -n 2 strangle 287.6 %command% -threads 3 -sillygibs -cl_forcepreload 1 -sv_forcepreload 1 -novid -nojoy +console -h 768 -w 1024 +exec tf2exec.cfg +clientport 27027; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy output.DP-1.iccprofile.$HOME/icc_current.icc
 
 
-// Momentum Mod KDE Wayland 2026-04-10
+// Momentum Mod KDE Xwayland 2026-04-10
 kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.preferEfficiency output.DP-1.iccprofile.""; SDL_VIDEODRIVER=x11 SDL_AUDIODRIVER=pipewire taskset -c 3-5 chrt -f 42 ionice -c 2 -n 2 strangle 287.6 %command% -threads 3 -w 1024 -h 768 -novid -nojoy -fullscreen -mapping +clientport 27027 +exec momexec.cfg; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy output.DP-1.iccprofile.$HOME/icc_current.icc
 
 
-// Half-Life Wayland 2026-04-10
+// Half-Life Xwayland 2026-04-10
 kscreen-doctor output.DP-1.mode.1024x768@144 output.DP-1.colorPowerTradeoff.preferEfficiency output.DP-1.iccprofile.""; SDL_VIDEODRIVER=x11 SDL_AUDIODRIVER=pipewire taskset -c 4-5 chrt -f 42 ionice -c 2 -n 2 strangle 144 %command% -nojoy -novid -w 1024 -h 768 -fullscreen +exec hl1exec.cfg; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy output.DP-1.iccprofile.$HOME/icc_current.icc
 
 
