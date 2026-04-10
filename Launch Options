@@ -49,7 +49,7 @@ chrt -f 42  // set realtime CPU priority: -f FIFO or -r Round-Robin, min prio 1,
 taskset -c 1-5 // lock process to these CPU cores
 
 
-// AMDGPU - some commands may be different on other drivers
+// AMDGPU commands
 //
 RADV_PERFTEST=localbos,nircache,nogttspill,sam
 RADV_EXPERIMENTAL=sparse,video_decode,video_encode
