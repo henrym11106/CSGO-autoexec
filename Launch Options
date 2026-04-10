@@ -68,7 +68,6 @@ output.DP-1.colorPowerTradeoff.preferEfficiency // minimal performance hit from 
 output.DP-1.iccprofile.$HOME/icc_current.icc // load this icc profile; this is a link to my active ICC profile
 output.DP-1.iccprofile."" // leave blank to use no profile and allow direct scan out.
 
-verify KDE Wayland direct scanout by opening "kwin debug console" enabling effect "showcompositing" and closing debug window.
-leaving the debug window open requires compositing.
-the red "compositing" overlay in the top right disappears when direct scanout is active.
+verify KDE Wayland direct scanout by opening "kwin debug console" enabling effect "showcompositing" and closing the debug window/console.
+the red "compositing" overlay in the top right disappears when direct scanout is active. leaving the debug window open requires compositing.
 color management and desktop effects can prevent direct scanout and degrade performance, especially with preferAccuracy/"Prefer Color Accuracy" enabled.
