@@ -1,5 +1,5 @@
 // CS2 KDE Wayland 2026-04-10
-kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.preferEfficiency output.DP-1.iccprofile.""; LD_PRELOAD="" SDL_VIDEO_DRIVER=wayland SDL_AUDIO_DRIVER=pipewire taskset -c 1-5 chrt -f 42 ionice -c 2 -n 2 strangle 1444.32 --vulkan-only %command% -threads 5 -nojoy -w 960 -h 720 -fullscreen +exec cs2exec.cfg +clientport 27027; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy output.DP-1.iccprofile.$HOME/icc_current.icc
+kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.preferEfficiency output.DP-1.iccprofile.""; LD_PRELOAD="" SDL_VIDEO_DRIVER=wayland SDL_AUDIO_DRIVER=pipewire taskset -c 1-5 chrt -f 42 ionice -c 2 -n 2 strangle 144.32 --vulkan-only %command% -threads 5 -nojoy -w 960 -h 720 -fullscreen +exec cs2exec.cfg +clientport 27027; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy output.DP-1.iccprofile.$HOME/icc_current.icc
 
 // CS2 x11 2026-03-13
 xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 960x720 --rate 143.98 --set TearFree off; taskset -c 1-5 chrt -f 42 ionice -c 2 -n 2 strangle 144.32 --vulkan-only %command% -novid -nojoy -w 1024 -h 768 -vulkan +exec cs2exec.cfg; xrandr --output DisplayPort-0 --mode 1920x1080 --transform none --rate 119.98 --set TearFree on
