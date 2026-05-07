@@ -1,35 +1,35 @@
 // CS2 KDE Wayland 2026-04-10
-kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.preferEfficiency output.DP-1.iccprofile.""; LD_PRELOAD="" SDL_VIDEO_DRIVER=wayland SDL_AUDIO_DRIVER=pipewire taskset -c 1-5 chrt -f 42 ionice -c 2 -n 2 strangle 144.1 --vulkan-only %command% -threads 5 -nojoy -w 960 -h 720 -fullscreen +exec cs2exec.cfg +clientport 27027; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy output.DP-1.iccprofile.$HOME/icc_current.icc
+kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.preferEfficiency output.DP-1.iccprofile.""; LD_PRELOAD="" SDL_VIDEO_DRIVER=wayland SDL_AUDIO_DRIVER=pulse taskset -c 1-5 chrt -r 33 ionice -c 2 -n 2 strangle 144.2 --vulkan-only %command% -threads 5 -nojoy -w 960 -h 720 -fullscreen +exec cs2exec.cfg +clientport 27027; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy output.DP-1.iccprofile.$HOME/icc_current.icc
 
 // CS2 x11 2026-03-13
-xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 960x720 --rate 143.98 --set TearFree off; taskset -c 1-5 chrt -f 42 ionice -c 2 -n 2 strangle 144.1 --vulkan-only %command% -novid -nojoy -w 1024 -h 768 -vulkan +exec cs2exec.cfg; xrandr --output DisplayPort-0 --mode 1920x1080 --transform none --rate 119.98 --set TearFree on
+xrandr --output DisplayPort-0 --mode 1920x1080 --scale-from 960x720 --rate 143.98 --set TearFree off; taskset -c 1-5 chrt -f 42 ionice -c 2 -n 2 strangle 144.2 --vulkan-only %command% -novid -nojoy -w 1024 -h 768 -vulkan +exec cs2exec.cfg; xrandr --output DisplayPort-0 --mode 1920x1080 --transform none --rate 119.98 --set TearFree on
 
 
 // CS:GO KDE Xwayland 2026-04-12
-kscreen-doctor output.DP-1.mode.1024x768@144 output.DP-1.colorPowerTradeoff.preferEfficiency output.DP-1.iccprofile.""; SDL_VIDEODRIVER=x11 SDL_AUDIODRIVER=pulse taskset -c 1-5 chrt -f 42 ionice -c 2 -n 2 strangle 287.9 --vulkan-only %command% -threads 5 -steam -vulkan -nojoy -novid -w 1024 -h 768 -fullscreen; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy output.DP-1.iccprofile.$HOME/icc_current.icc
+kscreen-doctor output.DP-1.mode.1024x768@144 output.DP-1.colorPowerTradeoff.preferEfficiency output.DP-1.iccprofile.""; SDL_VIDEODRIVER=x11 SDL_AUDIODRIVER=pulse taskset -c 1-5 chrt -r 33 ionice -c 2 -n 2 strangle 287.6 --vulkan-only %command% -threads 5 -steam -vulkan -nojoy -novid -w 1024 -h 768 -fullscreen; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy output.DP-1.iccprofile.$HOME/icc_current.icc
 
 
 // CS:S KDE Wayland 2026-04-10
-kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.preferEfficiency output.DP-1.iccprofile.""; SDL_VIDEODRIVER=wayland SDL_AUDIODRIVER=pipewire taskset -c 3-5 chrt -f 42 ionice -c 2 -n 2 strangle 432 %command% -threads 3 -novid -h 768 -w 1024 +clientport 27027 +exec cssexec.cfg; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy output.DP-1.iccprofile.$HOME/icc_current.icc
+kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.preferEfficiency output.DP-1.iccprofile.""; SDL_VIDEODRIVER=wayland SDL_AUDIODRIVER=pipewire taskset -c 3-5 chrt -r 33 ionice -c 2 -n 2 strangle 432 %command% -threads 3 -novid -h 768 -w 1024 +clientport 27027 +exec cssexec.cfg; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy output.DP-1.iccprofile.$HOME/icc_current.icc
 
 
 // HL2 KDE Xwayland 2026-04-10
-kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.preferEfficiency output.DP-1.iccprofile.""; SDL_VIDEODRIVER=x11 SDL_AUDIODRIVER=pipewire taskset -c 3-5 chrt -f 42 ionice -c 2 -n 2 strangle 287.9 %command% -threads 3 -novid -h 864 -w 1152 +exec hl2exec.cfg; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy output.DP-1.iccprofile.$HOME/icc_current.icc
+kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.preferEfficiency output.DP-1.iccprofile.""; SDL_VIDEODRIVER=x11 SDL_AUDIODRIVER=pipewire taskset -c 3-5 chrt -r 33 ionice -c 2 -n 2 strangle 287.6 %command% -threads 3 -novid -h 864 -w 1152 +exec hl2exec.cfg; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy output.DP-1.iccprofile.$HOME/icc_current.icc
 
 
 // TF2 KDE Wayland 2026-04-10
-kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.preferEfficiency output.DP-1.iccprofile.""; SDL_VIDEODRIVER=wayland SDL_AUDIODRIVER=pipewire taskset -c 3-5 chrt -f 42 ionice -c 2 -n 2 strangle 287.9 %command% -threads 3 -sillygibs -cl_forcepreload 1 -sv_forcepreload 1 -novid -nojoy +console -h 768 -w 1024 +exec tf2exec.cfg +clientport 27027; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy output.DP-1.iccprofile.$HOME/icc_current.icc
+kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.preferEfficiency output.DP-1.iccprofile.""; SDL_VIDEODRIVER=wayland SDL_AUDIODRIVER=pipewire taskset -c 3-5 chrt -r 33 ionice -c 2 -n 2 strangle 287.6 %command% -threads 3 -sillygibs -cl_forcepreload 1 -sv_forcepreload 1 -novid -nojoy +console -h 768 -w 1024 +exec tf2exec.cfg +clientport 27027; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy output.DP-1.iccprofile.$HOME/icc_current.icc
 
 
 // Momentum Mod KDE Xwayland 2026-04-10
-kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.preferEfficiency output.DP-1.iccprofile.""; SDL_VIDEODRIVER=x11 SDL_AUDIODRIVER=pipewire taskset -c 3-5 chrt -f 42 ionice -c 2 -n 2 strangle 287.9 %command% -threads 3 -w 1024 -h 768 -novid -nojoy -fullscreen -mapping +clientport 27027 +exec momexec.cfg; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy output.DP-1.iccprofile.$HOME/icc_current.icc
+kscreen-doctor output.DP-1.mode.1920x1080@144 output.DP-1.colorPowerTradeoff.preferEfficiency output.DP-1.iccprofile.""; SDL_VIDEODRIVER=x11 SDL_AUDIODRIVER=pipewire taskset -c 3-5 chrt -r 33 ionice -c 2 -n 2 strangle 287.6 %command% -threads 3 -w 1024 -h 768 -novid -nojoy -fullscreen -mapping +clientport 27027 +exec momexec.cfg; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy output.DP-1.iccprofile.$HOME/icc_current.icc
 
 
 // Half-Life Xwayland 2026-04-10
-kscreen-doctor output.DP-1.mode.1024x768@144 output.DP-1.colorPowerTradeoff.preferEfficiency output.DP-1.iccprofile.""; SDL_VIDEODRIVER=x11 SDL_AUDIODRIVER=pipewire taskset -c 4-5 chrt -f 42 ionice -c 2 -n 2 strangle 144.1 %command% -nojoy -novid -w 1024 -h 768 -fullscreen +exec hl1exec.cfg; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy output.DP-1.iccprofile.$HOME/icc_current.icc
+kscreen-doctor output.DP-1.mode.1024x768@144 output.DP-1.colorPowerTradeoff.preferEfficiency output.DP-1.iccprofile.""; SDL_VIDEODRIVER=x11 SDL_AUDIODRIVER=pipewire taskset -c 4-5 chrt -r 33 ionice -c 2 -n 2 strangle 144.2 %command% -nojoy -novid -w 1024 -h 768 -fullscreen +exec hl1exec.cfg; kscreen-doctor output.DP-1.mode.1920x1080@120 output.DP-1.colorPowerTradeoff.preferAccuracy output.DP-1.iccprofile.$HOME/icc_current.icc
 
 
-
+ -r 33
 
 // General steam linux launch options
 //
@@ -46,7 +46,7 @@ LD_PRELOAD="" // don't load other stuff, including steam overlay
 vk-layer-flimes 144 // external Vulkan FPS limiter vk-layer-flimes
 strangle 144 --vulkan-only // external FPS limiter libstrangle
 ionice -c 2 -n 2 // set IO priority: -c = class; 1=realtime, 2=best-effort and -n = level; max prio =0, min =7.
-chrt -f 42  // set realtime CPU priority: -f FIFO or -r Round-Robin, min prio 1, max 99 but stay below 49; ideally 42 max.
+chrt -r 33  // set realtime CPU priority: -f FIFO or -r Round-Robin, min prio 1, max 99 but stay below 43 or so; high values will cause crashes or lockups.
 taskset -c 1-5 // or e.g. 2,4,6 (etc.) lock process to these CPU cores. run "chrt --help" for more info
 
 nonstandard Linux user permissions are required to set FIFO scheduling here. see:
